@@ -65,41 +65,70 @@
 
   <!-- ═══ SLIDE 2 — CLINICAL PROBLEM + METHODS ═══ -->
   <div id="f2" class="slide">
-    <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
-      <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:6px;">Objective &amp; Methods</div>
-      <h2 style="font-size:46px;font-weight:900;margin-bottom:18px;">From routine 2D fluoroscopy to CFD-ready 3D geometry.</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-            <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">OBJECTIVE</div>
-            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;">Develop and validate an AI pipeline transforming routine 2D fluoroscopic angiograms into 3D geometries suitable for geometric and CFD analysis in failing Fontan patients — using only equipment available in any catheterization lab worldwide.</div>
-          </div>
-          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-            <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">AI MODELS USED</div>
-            <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;">
-              <div style="background:#0A1628;padding:8px 12px;border-radius:5px;"><strong style="color:#C9A84C;">Gemini 2.5 Flash (2.5B params)</strong> — Multimodal LLM · transformer + enhanced vision · 16-step iterative vascular enhancement and segmentation</div>
-              <div style="background:#0A1628;padding:8px 12px;border-radius:5px;"><strong style="color:#C9A84C;">Hunyuan3D-2mini (384M params)</strong> — Tencent diffusion transformer · encoder-decoder with attention · 2D projection → STL mesh generation</div>
-              <div style="background:#0A1628;padding:8px 12px;border-radius:5px;"><strong style="color:#C9A84C;">Veo-3</strong> — Video generation for hemodynamic flow visualization</div>
-            </div>
+    <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;display:grid;grid-template-columns:1fr 780px;gap:0;">
+
+      <!-- LEFT: text content -->
+      <div style="padding:28px 32px 28px 60px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+        <div>
+          <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:6px;">Objective &amp; Methods</div>
+          <h2 style="font-size:42px;font-weight:900;line-height:1.1;">From routine 2D fluoroscopy<br>to CFD-ready 3D geometry.</h2>
+        </div>
+
+        <!-- Why existing methods fail -->
+        <div style="background:#150808;border:1px solid #3A1010;border-left:4px solid #CC4444;border-radius:8px;padding:16px 20px;">
+          <div style="font-size:13px;font-weight:800;color:#FF6666;margin-bottom:10px;letter-spacing:1px;">WHY EXISTING METHODS FALL SHORT</div>
+          <div style="display:flex;flex-direction:column;gap:7px;font-size:14px;color:#CCDDEE;">
+            <div style="display:flex;gap:10px;align-items:baseline;"><span style="color:#CC4444;font-weight:800;font-size:16px;">✗</span><span>MRI/CT often <strong style="color:#F0F4FF;">unavailable</strong> at time of re-intervention in failing Fontan patients</span></div>
+            <div style="display:flex;gap:10px;align-items:baseline;"><span style="color:#CC4444;font-weight:800;font-size:16px;">✗</span><span>Neonatal structures measured in mm — <strong style="color:#F0F4FF;">scanner resolution limits</strong> detail capture</span></div>
+            <div style="display:flex;gap:10px;align-items:baseline;"><span style="color:#CC4444;font-weight:800;font-size:16px;">✗</span><span>Manual segmentation + CFD setup: <strong style="color:#F0F4FF;">days to weeks</strong> of specialist time</span></div>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-            <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">WHY EXISTING METHODS FAIL</div>
-            <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:#CCDDEE;">
-              <div style="display:flex;gap:8px;"><span style="color:#CC4444;font-weight:700;">✗</span><span>Traditional 3D reconstruction requires MRI/CT — <strong style="color:#F0F4FF;">often unavailable</strong> at time of re-intervention</span></div>
-              <div style="display:flex;gap:8px;"><span style="color:#CC4444;font-weight:700;">✗</span><span>Neonatal/infant structures measured in mm — <strong style="color:#F0F4FF;">scanner resolution limits</strong></span></div>
-              <div style="display:flex;gap:8px;"><span style="color:#CC4444;font-weight:700;">✗</span><span>Manual segmentation: <strong style="color:#F0F4FF;">days of expert time</strong> per case</span></div>
-              <div style="display:flex;gap:8px;"><span style="color:#CC4444;font-weight:700;">✗</span><span>Volumetric meshing + CFD setup: <strong style="color:#F0F4FF;">specialized labs only</strong></span></div>
-              <div style="display:flex;gap:8px;"><span style="color:#44CC88;font-weight:700;">✓</span><span>Our pipeline: <strong style="color:#F0F4FF;">standard fluoroscopy → CFD mesh in &lt;15 minutes</strong></span></div>
+
+        <!-- AI Models — visual cards -->
+        <div>
+          <div style="font-size:13px;font-weight:800;color:#C9A84C;margin-bottom:10px;letter-spacing:1px;">AI MODELS POWERING THE PIPELINE</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+
+            <!-- Gemini -->
+            <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;background:#0A1628;border:1px solid #1E3254;border-left:4px solid #4285F4;border-radius:8px;padding:12px 16px;">
+              <div style="width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#4285F4,#EA4335,#FBBC05,#34A853);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:white;flex-shrink:0;">G</div>
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#F0F4FF;">Gemini 2.5 Flash <span style="font-size:12px;color:#8899BB;font-weight:400;">· 2.5B params · Google DeepMind</span></div>
+                <div style="font-size:12px;color:#8899BB;margin-top:2px;">Multimodal LLM · transformer + enhanced vision · drives all 16 iterative vascular enhancement steps via natural language prompts</div>
+              </div>
             </div>
-          </div>
-          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-            <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">VALIDATION CASE</div>
-            <div style="font-size:14px;color:#CCDDEE;line-height:1.6;">Representative failing Fontan angiogram processed through all 16 steps via a custom browser-based interface. Quality control at each step. Anatomical accuracy assessed against clinical features visible in the source angiogram.</div>
+
+            <!-- Hunyuan3D -->
+            <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;background:#0A1628;border:1px solid #1E3254;border-left:4px solid #FF6633;border-radius:8px;padding:12px 16px;">
+              <div style="width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#FF6633,#CC2200);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:white;flex-shrink:0;">H3D</div>
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#F0F4FF;">Hunyuan3D-2mini <span style="font-size:12px;color:#8899BB;font-weight:400;">· 384M params · Tencent</span></div>
+                <div style="font-size:12px;color:#8899BB;margin-top:2px;">Diffusion transformer · encoder-decoder with attention · converts optimized 2D vascular projection → watertight STL/OBJ/GLB mesh</div>
+              </div>
+            </div>
+
+            <!-- Veo -->
+            <div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;background:#0A1628;border:1px solid #1E3254;border-left:4px solid #9966FF;border-radius:8px;padding:12px 16px;">
+              <div style="width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#9966FF,#6633CC);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:white;flex-shrink:0;">V3</div>
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#F0F4FF;">Veo-3 <span style="font-size:12px;color:#8899BB;font-weight:400;">· Google DeepMind</span></div>
+                <div style="font-size:12px;color:#8899BB;margin-top:2px;">Video generation model · renders hemodynamic flow animation from the 3D mesh for surgical planning and family education</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- RIGHT: workflow figure -->
+      <div style="display:flex;flex-direction:column;background:rgba(0,0,0,0.35);border-left:2px solid #1E3254;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:16px;">
+          <img src="assets/Figure.png" style="max-width:100%;max-height:880px;object-fit:contain;" alt="AI Pipeline Workflow"/>
+        </div>
+        <div style="padding:10px 20px;border-top:1px solid #1E3254;text-align:center;">
+          <div style="font-size:12px;color:#8899BB;">End-to-end AI pipeline: angiogram → 16-step enhancement → 3D mesh → CFD streamlines</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
