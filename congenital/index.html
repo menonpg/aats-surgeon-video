@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <title>AATS 2026 · Congenital Risk Calculator</title>
+  <style>
+    :root {
+      --navy: #1B3A6B; --navy2: #0F2547; --gold: #C9A84C;
+      --bg: #0A1628; --text: #F0F4FF; --dim: #8899BB;
+      --border: #1E3254; --card: #0F1E3A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow: hidden; }
+    .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; background: var(--bg); opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+    .slide.active { opacity: 1; pointer-events: auto; }
+    #stage { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    #canvas { position: relative; width: 1920px; height: 1080px; transform-origin: top left; }
+    .hdr { position: absolute; top: 0; left: 0; right: 0; height: 76px; background: var(--navy); border-bottom: 2px solid var(--gold); display: flex; align-items: center; padding: 0 60px; z-index: 10; pointer-events: none; }
+    .hdr-logo { height: 44px; margin-right: 20px; }
+    .hdr-title { font-size: 21px; font-weight: 700; }
+    .hdr-tag { margin-left: auto; font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 2px; }
+    .ftr { position: absolute; bottom: 0; left: 0; right: 0; height: 52px; background: var(--navy2); border-top: 2px solid var(--border); display: flex; align-items: center; padding: 0 60px; font-size: 14px; color: var(--dim); z-index: 10; pointer-events: none; }
+    .ftr-right { margin-left: auto; }
+    #nav { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; background: rgba(15,37,71,0.95); border: 1px solid var(--gold); border-radius: 32px; padding: 10px 24px; z-index: 9999; }
+    #nav button { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 20px; font-size: 16px; cursor: pointer; font-family: inherit; font-weight: 600; }
+    #nav button:hover { background: var(--gold); color: var(--bg); }
+    #nav-label { font-size: 15px; color: var(--dim); min-width: 60px; text-align: center; }
+    a { color: var(--gold); text-decoration: none; pointer-events: auto; position: relative; z-index: 100; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div id="stage"><div id="canvas">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <img src="../assets/aats-logo.jpg" class="hdr-logo" alt="AATS"/>
+    <div class="hdr-title">AQG Congenital Heart Surgery Risk Calculator</div>
+    <div class="hdr-tag">SATURDAY MAY 2, 2026 · 9:00 AM · ROOM E353A</div>
+  </div>
+  <div class="ftr">
+    <span>Prahlad Menon, PhD, PMP · AATS Quality Gateway</span>
+    <span class="ftr-right">AATS Annual Meeting 2026 · Chicago · McCormick Place</span>
+  </div>
+
+  <!-- ═══ SLIDE 1 — TITLE ═══ -->
+  <div id="c1" class="slide active">
+    <div style="position:absolute;top:76px;bottom:52px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#C9A84C;margin-bottom:24px;">AATS Annual Meeting · Saturday May 2, 2026 · 9:00 AM · AI for Surgeons Breakout</div>
+      <h1 style="font-size:72px;font-weight:900;line-height:1.1;max-width:1400px;margin-bottom:16px;">Congenital Heart Surgery<br>Risk Calculator</h1>
+      <div style="font-size:28px;color:#C9A84C;font-weight:600;margin-bottom:12px;">Live Walkthrough · AATS Quality Gateway</div>
+      <div style="font-size:20px;color:#8899BB;margin-bottom:36px;">Predicting perioperative mortality in neonates, infants, and children using validated RandomForest models</div>
+      <div style="font-size:22px;font-weight:800;">Prahlad Menon, PhD, PMP</div>
+      <div style="font-size:18px;color:#C9A84C;margin-top:6px;">AATS Quality Gateway</div>
+      <div style="margin-top:28px;">
+        <a href="https://congenital.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#1B3A6B;border:2px solid #C9A84C;color:#C9A84C;padding:14px 36px;border-radius:8px;font-size:19px;font-weight:700;">&#x1F517; congenital.aatsqualitygateway.org</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 2 — WHY CONGENITAL IS DIFFERENT ═══ -->
+  <div id="c2" class="slide">
+    <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Clinical Context</div>
+      <h2 style="font-size:52px;font-weight:900;margin-bottom:24px;">Congenital surgery is categorically different. So is the model.</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">THE PATIENT POPULATION</div>
+            <ul style="font-size:16px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+              <li>Neonates, infants, children — some <strong style="color:#F0F4FF;">days old</strong></li>
+              <li>Single-ventricle, biventricular, complex structural defects</li>
+              <li>Adult risk models <strong style="color:#CC4444;">do not apply</strong></li>
+              <li>Procedure complexity varies enormously — ASO to Norwood</li>
+              <li>Registry data from AQAP (AATS Quality Assurance Program)</li>
+            </ul>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">THREE VALIDATED MODELS</div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;">
+              <div style="background:#0A1628;border-radius:6px;padding:10px 14px;"><span style="color:#C9A84C;font-weight:700;">BIV Model (47 variables):</span> ASO · ASOVSD · CoAVSD · Truncus · Biventricular repairs</div>
+              <div style="background:#0A1628;border-radius:6px;padding:10px 14px;"><span style="color:#C9A84C;font-weight:700;">Norwood Model (21 variables):</span> Stage 1 single-ventricle palliation</div>
+              <div style="background:#0A1628;border-radius:6px;padding:10px 14px;"><span style="color:#C9A84C;font-weight:700;">Hybrid Model (15 variables):</span> Hybrid palliation — ductal stenting + banding</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">MODEL ARCHITECTURE</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">All three models use <strong style="color:#F0F4FF;">randomForestSRC</strong> (R) trained on AQAP registry data. The API automatically routes to the correct model based on the <code style="background:#1B3A6B;padding:2px 6px;border-radius:3px;">operation</code> field. Only one field is required — all others default to lowest-risk values.</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+              <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:600;">Output</div><div style="color:#8899BB;">Perioperative mortality % + percentile rank</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:600;">Percentile</div><div style="color:#8899BB;">Risk rank vs all historical cases for that procedure</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:600;">API</div><div style="color:#8899BB;">Plumber R · JWT auth · Swagger UI</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:600;">Defaults</div><div style="color:#8899BB;">Missing fields → lowest-risk values (safe for partial data)</div></div>
+            </div>
+          </div>
+          <div style="background:#0F2547;border:1px solid #1E3254;border-radius:8px;padding:20px;font-size:17px;color:#AABBCC;line-height:1.5;">
+            A percentile of <strong style="color:#C9A84C;">85</strong> means the patient's predicted risk is higher than <strong style="color:#F0F4FF;">85% of historical cases</strong> for that same procedure — powerful for family counseling and consent.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 3 — PROCEDURES & VARIABLES ═══ -->
+  <div id="c3" class="slide">
+    <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Supported Procedures &amp; Variables</div>
+      <h2 style="font-size:48px;font-weight:900;margin-bottom:20px;">One field required. Everything else is optional.</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">SUPPORTED OPERATIONS</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+              <div style="background:#0A1628;padding:10px;border-radius:6px;border-left:3px solid #C9A84C;"><div style="font-weight:700;margin-bottom:3px;">ASO</div><div style="color:#8899BB;">Arterial Switch Operation</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;border-left:3px solid #C9A84C;"><div style="font-weight:700;margin-bottom:3px;">ASOVSD</div><div style="color:#8899BB;">ASO with VSD repair</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;border-left:3px solid #C9A84C;"><div style="font-weight:700;margin-bottom:3px;">CoAVSD</div><div style="color:#8899BB;">CoA with VSD repair</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;border-left:3px solid #C9A84C;"><div style="font-weight:700;margin-bottom:3px;">Truncus</div><div style="color:#8899BB;">Truncus arteriosus repair</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;border-left:3px solid #44CC88;"><div style="font-weight:700;margin-bottom:3px;">Norwood</div><div style="color:#8899BB;">Stage 1 single-ventricle palliation</div></div>
+              <div style="background:#0A1628;padding:10px;border-radius:6px;border-left:3px solid #8899BB;"><div style="font-weight:700;margin-bottom:3px;">Hybridpall</div><div style="color:#8899BB;">Hybrid palliation (ductal stent + PA banding)</div></div>
+            </div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:10px;">SMART DEFAULTS</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;">Only <code style="background:#1B3A6B;padding:2px 6px;border-radius:3px;">operation</code> is required. All other variables default to lowest-risk: binary fields → <code style="background:#1B3A6B;padding:2px 6px;border-radius:3px;">"no"</code>, procedure-specific factors → <code style="background:#1B3A6B;padding:2px 6px;border-radius:3px;">"missing"</code>, age → 10 days. Enables rapid triage with partial data.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">KEY VARIABLE CATEGORIES</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;">
+              <div style="display:flex;gap:10px;align-items:center;"><span style="background:#1B3A6B;padding:3px 10px;border-radius:4px;color:#C9A84C;font-weight:600;white-space:nowrap;">Patient</span><span style="color:#CCDDEE;">Age (days), weight (kg), gestational age (weeks), sex</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="background:#1B3A6B;padding:3px 10px;border-radius:4px;color:#C9A84C;font-weight:600;white-space:nowrap;">Anatomy</span><span style="color:#CCDDEE;">Single ventricle, arch obstruction, heterotaxy, aortic arch anomalies</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="background:#1B3A6B;padding:3px 10px;border-radius:4px;color:#C9A84C;font-weight:600;white-space:nowrap;">Acuity</span><span style="color:#CCDDEE;">Shock, mechanical support, cardiogenic compromise pre-op</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="background:#1B3A6B;padding:3px 10px;border-radius:4px;color:#C9A84C;font-weight:600;white-space:nowrap;">Comorbidities</span><span style="color:#CCDDEE;">Chromosomal anomalies, renal, pulmonary, neurological</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="background:#1B3A6B;padding:3px 10px;border-radius:4px;color:#C9A84C;font-weight:600;white-space:nowrap;">Procedure</span><span style="color:#CCDDEE;">Procedure-specific factors (PSF), prior cardiac surgery, urgency</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="background:#1B3A6B;padding:3px 10px;border-radius:4px;color:#C9A84C;font-weight:600;white-space:nowrap;">Institution</span><span style="color:#CCDDEE;">Hospital volume, center experience, bypass time</span></div>
+            </div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:10px;">API ENDPOINTS</div>
+            <div style="font-size:14px;color:#CCDDEE;line-height:1.7;margin-bottom:10px;"><strong>POST /predict</strong> — Routes to BIV, Norwood, or Hybrid model by operation field<br><strong>GET /model-info</strong> — Lists supported procedures and variable requirements<br><strong>POST /token</strong> — JWT auth (30-min tokens, admin/admin for demo)</div>
+            <a href="http://135.222.209.189:8003/__docs__/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;">&#x1F517; Swagger UI — Try it live</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 4 — LIVE DEMO WALKTHROUGH ═══ -->
+  <div id="c4" class="slide">
+    <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Live Demo</div>
+      <h2 style="font-size:50px;font-weight:900;margin-bottom:20px;">Walking Through a Real Case</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:14px;">EXAMPLE CASE — NEONATAL ASO</div>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:15px;">
+              <span style="color:#8899BB;">Operation:</span><span style="color:#C9A84C;font-weight:700;">ASO (Arterial Switch)</span>
+              <span style="color:#8899BB;">Age:</span><span>7 days old</span>
+              <span style="color:#8899BB;">Weight:</span><span>3.2 kg</span>
+              <span style="color:#8899BB;">Diagnosis:</span><span>d-TGA, IVS</span>
+              <span style="color:#8899BB;">Acuity:</span><span>Stable, elective</span>
+              <span style="color:#8899BB;">Comorbidities:</span><span>None</span>
+              <span style="color:#8899BB;">PSF:</span><span>None</span>
+            </div>
+          </div>
+          <div style="background:#05150A;border:1px solid #006622;border-top:3px solid #44CC88;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#44CC88;margin-bottom:12px;">MODEL OUTPUT</div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;">
+              <span style="font-size:17px;color:#CCDDEE;">Perioperative Mortality</span>
+              <span style="font-size:32px;font-weight:900;color:#44CC88;">1.2%</span>
+              <span style="font-size:15px;color:#8899BB;">Percentile Rank</span>
+              <span style="font-size:22px;font-weight:700;color:#C9A84C;">28th</span>
+            </div>
+            <div style="margin-top:10px;font-size:14px;color:#8899BB;">Lower risk than 72% of historical ASO cases — consistent with low-acuity presentation</div>
+          </div>
+          <div style="background:#1a0508;border:1px solid #660011;border-top:3px solid #CC4444;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#CC4444;margin-bottom:12px;">HIGH-RISK EXAMPLE — NORWOOD</div>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:15px;">
+              <span style="color:#8899BB;">Operation:</span><span style="color:#CC4444;font-weight:700;">Norwood</span>
+              <span style="color:#8899BB;">Age:</span><span>5 days · HLHS</span>
+              <span style="color:#8899BB;">Acuity:</span><span>Cardiogenic shock, on PGE</span>
+              <span style="color:#8899BB;">Comorbidity:</span><span>Premature (34 weeks GA)</span>
+            </div>
+            <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:17px;color:#CCAAAA;">Predicted Mortality:</span>
+              <span style="font-size:32px;font-weight:900;color:#CC4444;">18.7%</span>
+            </div>
+            <div style="font-size:13px;color:#886666;margin-top:4px;">Percentile: 94th — High risk badge triggered. Triggers comprehensive family counseling protocol.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">INTERPRETING THE OUTPUT</div>
+            <table style="width:100%;border-collapse:collapse;font-size:14px;">
+              <tr style="color:#8899BB;font-size:12px;letter-spacing:1px;border-bottom:1px solid #1E3254;">
+                <td style="padding:4px 0;">PERCENTILE</td><td style="padding:4px 0;">RISK LEVEL</td><td style="padding:4px 0;">ACTION</td>
+              </tr>
+              <tr style="border-bottom:1px solid #0F2547;"><td style="padding:7px 0;color:#44CC88;font-weight:700;">0–50th</td><td style="padding:7px 0;">Below average</td><td style="padding:7px 0;color:#8899BB;">Standard protocols</td></tr>
+              <tr style="border-bottom:1px solid #0F2547;"><td style="padding:7px 0;color:#C9A84C;font-weight:700;">50–75th</td><td style="padding:7px 0;">Average</td><td style="padding:7px 0;color:#8899BB;">Standard protocols</td></tr>
+              <tr style="border-bottom:1px solid #0F2547;"><td style="padding:7px 0;color:#FFAA44;font-weight:700;">75–90th</td><td style="padding:7px 0;">Above average</td><td style="padding:7px 0;color:#8899BB;">Enhanced monitoring</td></tr>
+              <tr style="border-bottom:1px solid #0F2547;"><td style="padding:7px 0;color:#FF6644;font-weight:700;">90–95th</td><td style="padding:7px 0;">High</td><td style="padding:7px 0;color:#8899BB;">Risk modification</td></tr>
+              <tr><td style="padding:7px 0;color:#CC4444;font-weight:700;">&gt;95th</td><td style="padding:7px 0;font-weight:700;">Very High &#x1F534;</td><td style="padding:7px 0;color:#CC4444;font-weight:600;">Comprehensive optimization</td></tr>
+            </table>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:20px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">CLINICAL USE CASES</div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;">
+              <div style="padding:8px 12px;background:#0A1628;border-radius:6px;">&#x1F91D; <strong style="color:#F0F4FF;">Informed consent</strong> — data-driven family counseling with percentile context</div>
+              <div style="padding:8px 12px;background:#0A1628;border-radius:6px;">&#x1F4CB; <strong style="color:#F0F4FF;">Pre-op optimization</strong> — identify modifiable risk factors before surgery</div>
+              <div style="padding:8px 12px;background:#0A1628;border-radius:6px;">&#x1F3E5; <strong style="color:#F0F4FF;">Triage &amp; transfer decisions</strong> — rapid risk stratification with minimal data</div>
+              <div style="padding:8px 12px;background:#0A1628;border-radius:6px;">&#x1F4CA; <strong style="color:#F0F4FF;">Quality benchmarking</strong> — compare institutional outcomes vs AQAP registry</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 5 — TECHNICAL ARCHITECTURE ═══ -->
+  <div id="c5" class="slide">
+    <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+      <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Under the Hood</div>
+      <h2 style="font-size:50px;font-weight:900;margin-bottom:22px;">Built on validated registry data. Transparent by design.</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">TECH STACK</div>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:15px;">
+              <span style="color:#C9A84C;font-weight:700;">Models</span><span style="color:#CCDDEE;">randomForestSRC (R) · 3 procedure-specific models</span>
+              <span style="color:#C9A84C;font-weight:700;">API</span><span style="color:#CCDDEE;">Plumber (R) · REST · JWT bearer auth · Swagger UI</span>
+              <span style="color:#C9A84C;font-weight:700;">UI</span><span style="color:#CCDDEE;">React + TypeScript + TailwindCSS · shadcn/ui</span>
+              <span style="color:#C9A84C;font-weight:700;">Deploy</span><span style="color:#CCDDEE;">PM2 + Nginx + HTTPS · Azure East US</span>
+              <span style="color:#C9A84C;font-weight:700;">Data</span><span style="color:#CCDDEE;">AQAP Registry (AATS Quality Assurance Program)</span>
+            </div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">REQUEST FLOW</div>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px;">
+              <span style="background:#1B3A6B;padding:7px 12px;border-radius:6px;text-align:center;">Clinician<br>enters data</span>
+              <span style="color:#C9A84C;font-size:20px;">→</span>
+              <span style="background:#1B3A6B;padding:7px 12px;border-radius:6px;text-align:center;">React UI<br>validates</span>
+              <span style="color:#C9A84C;font-size:20px;">→</span>
+              <span style="background:#1B3A6B;padding:7px 12px;border-radius:6px;text-align:center;">Node proxy<br>+ JWT auth</span>
+              <span style="color:#C9A84C;font-size:20px;">→</span>
+              <span style="background:#1B3A6B;padding:7px 12px;border-radius:6px;text-align:center;">Plumber R<br>RandomForest</span>
+              <span style="color:#C9A84C;font-size:20px;">→</span>
+              <span style="background:#1B3A6B;padding:7px 12px;border-radius:6px;color:#44CC88;font-weight:700;text-align:center;">mortality %<br>+ percentile</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">OPEN SOURCE REPOSITORIES</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div>
+                <a href="https://github.com/AATS-IT/CongenitalAPI" target="_blank" style="font-size:15px;font-weight:600;">&#x1F517; AATS-IT/CongenitalAPI</a>
+                <div style="font-size:13px;color:#8899BB;margin-top:2px;">Plumber R API · 3 RandomForest models · JWT auth · Swagger docs</div>
+              </div>
+              <div>
+                <a href="https://github.com/AATS-IT/Cong_Modeling_R" target="_blank" style="font-size:15px;font-weight:600;">&#x1F517; AATS-IT/Cong_Modeling_R</a>
+                <div style="font-size:13px;color:#8899BB;margin-top:2px;">R modeling code · AQAP registry training · Variable selection</div>
+              </div>
+              <div>
+                <a href="https://github.com/AATS-IT/CongRiskCalculatorUI" target="_blank" style="font-size:15px;font-weight:600;">&#x1F517; AATS-IT/CongRiskCalculatorUI</a>
+                <div style="font-size:13px;color:#8899BB;margin-top:2px;">React/TypeScript frontend · Risk display · Population statistics</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:10px;">LIVE ACCESS</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <a href="https://congenital.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:10px 18px;border-radius:6px;font-size:15px;font-weight:600;">&#x1F517; congenital.aatsqualitygateway.org — Full UI</a>
+              <a href="http://135.222.209.189:8003/__docs__/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #8899BB;color:#8899BB;padding:10px 18px;border-radius:6px;font-size:15px;font-weight:600;">&#x1F517; API Swagger Docs — Try /predict directly</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 6 — FULL RISK CALCULATOR SUITE ═══ -->
+  <div id="c6" class="slide">
+    <div style="position:absolute;top:76px;bottom:52px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 80px;">
+      <h2 style="font-size:52px;font-weight:900;margin-bottom:6px;text-align:center;">The Complete AATS Quality Gateway Suite</h2>
+      <p style="font-size:19px;color:#8899BB;margin-bottom:28px;text-align:center;">Risk calculators for every thoracic surgery patient population</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;width:100%;max-width:1500px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">&#x2764;&#xFE0F;</div>
+          <div style="font-size:20px;font-weight:800;margin-bottom:6px;">Adult Cardiac</div>
+          <div style="font-size:14px;color:#8899BB;margin-bottom:16px;">8 randomForestSRC models · Clara AI assistant · Web form + AskAQG conversational interface</div>
+          <a href="https://risk.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:8px 18px;border-radius:4px;font-size:14px;font-weight:600;">risk.aatsqualitygateway.org</a>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">&#x1F33C;</div>
+          <div style="font-size:20px;font-weight:800;margin-bottom:6px;">Thoracic (LITE)</div>
+          <div style="font-size:14px;color:#8899BB;margin-bottom:16px;">Lung + Esophageal · 33 models · Voice/AI input · Population stats + percentiles · P-values</div>
+          <a href="https://thoracic.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:8px 18px;border-radius:4px;font-size:14px;font-weight:600;">thoracic.aatsqualitygateway.org</a>
+        </div>
+        <div style="background:#1B3A6B;border:2px solid #C9A84C;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:10px;">&#x1F476;</div>
+          <div style="font-size:20px;font-weight:800;margin-bottom:6px;">Congenital ← You are here</div>
+          <div style="font-size:14px;color:#CCDDEE;margin-bottom:16px;">3 procedure-specific models · BIV · Norwood · Hybrid · AQAP registry · Neonates to children</div>
+          <a href="https://congenital.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#0A1628;border:2px solid #C9A84C;color:#C9A84C;padding:8px 18px;border-radius:4px;font-size:14px;font-weight:700;">congenital.aatsqualitygateway.org</a>
+        </div>
+      </div>
+      <div style="margin-top:24px;text-align:center;font-size:16px;color:#556688;">
+        <a href="https://learn.aatsqualitygateway.org" target="_blank">learn.aatsqualitygateway.org</a>
+        &nbsp;·&nbsp;
+        <a href="https://menonpg.github.io/aats-surgeon-video/" target="_blank">menonpg.github.io/aats-surgeon-video</a>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+
+<div id="nav">
+  <button id="btn-prev">&#9664;</button>
+  <span id="nav-label">1 / 6</span>
+  <button id="btn-next">&#9654;</button>
+</div>
+
+<script>
+  const slides = ['c1','c2','c3','c4','c5','c6'];
+  let cur = 0;
+
+  function scale() {
+    const canvas = document.getElementById('canvas');
+    const s = Math.min(window.innerWidth/1920, window.innerHeight/1080);
+    canvas.style.transform = `scale(${s})`;
+    canvas.style.marginLeft = `${(window.innerWidth-1920*s)/2}px`;
+    canvas.style.marginTop = `${(window.innerHeight-1080*s)/2}px`;
+  }
+  window.addEventListener('resize', scale); scale();
+
+  function goTo(n) {
+    document.getElementById(slides[cur]).classList.remove('active');
+    cur = Math.max(0, Math.min(slides.length-1, n));
+    document.getElementById(slides[cur]).classList.add('active');
+    document.getElementById('nav-label').textContent = `${cur+1} / ${slides.length}`;
+  }
+
+  document.getElementById('btn-prev').onclick = () => goTo(cur-1);
+  document.getElementById('btn-next').onclick = () => goTo(cur+1);
+  document.addEventListener('keydown', e => {
+    if (e.key==='ArrowRight'||e.key===' ') { e.preventDefault(); goTo(cur+1); }
+    if (e.key==='ArrowLeft') goTo(cur-1);
+  });
+</script>
+</body>
+</html>
