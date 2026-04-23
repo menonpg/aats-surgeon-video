@@ -29,7 +29,7 @@
       position:absolute; top:0; left:0;
       width:1920px; height:1080px;
       display:flex; flex-direction:column;
-      opacity:0; pointer-events:none;
+      opacity:0;
       background:var(--bg);
     }
     /* Header */
@@ -748,6 +748,8 @@
   const tl = gsap.timeline({ paused: false });
 
   function fadeSlide(id, start, dur) {
+    tl.set(`#${id}`, { pointerEvents: "auto" }, start);
+    tl.set(`#${id}`, { pointerEvents: "none" }, start + dur - 0.5);
     tl.to(`#${id}`, { opacity: 1, duration: 0.6 }, start);
     tl.to(`#${id}`, { opacity: 0, duration: 0.5 }, start + dur - 0.5);
   }
