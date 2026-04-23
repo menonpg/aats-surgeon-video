@@ -1031,20 +1031,13 @@
     </div>`;
   document.body.appendChild(nav);
 
-  const slideIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s16'];
-
   function jumpTo(idx) {
-    currentSlide = Math.max(0, Math.min(idx, slideIds.length - 1));
-    slideIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) { el.style.opacity = '0'; el.style.pointerEvents = 'none'; }
-    });
-    const target = document.getElementById(slideIds[currentSlide]);
-    if (target) { target.style.opacity = '1'; target.style.pointerEvents = 'auto'; }
+    currentSlide = Math.max(0, Math.min(idx, slideTimings.length - 1));
+    tl.seek(slideTimings[currentSlide]);
     tl.pause();
     isPaused = true;
     document.getElementById('nav-play').textContent = '▶ Play';
-    document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideIds.length}`;
+    document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideTimings.length}`;
   }
 
   document.getElementById('nav-prev').onclick = () => jumpTo(currentSlide - 1);
