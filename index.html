@@ -285,45 +285,42 @@
      S4 — PROMPT ENGINEERING [56–81s]
 ═══════════════════════════════════════════════ -->
 <div id="s4" class="slide" data-composition-id="s4-root" data-start="56" data-duration="25" data-width="1920" data-height="1080" data-track-index="2">
-  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
-    <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:6px;">Prompt Engineering</div>
-    <h2 style="font-size:44px;font-weight:900;margin-bottom:18px;">Structure your prompt. Transform your result.</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:10px;">THE 5-PART FRAMEWORK</div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:15px;">
-            <span style="color:#C9A84C;font-weight:700;">ROLE</span><span style="color:#CCDDEE;">You are a thoracic surgeon attending at a Level I trauma center.</span>
-            <span style="color:#C9A84C;font-weight:700;">CONTEXT</span><span style="color:#CCDDEE;">67-year-old, 1.2cm RLL nodule, ex-smoker, PET negative.</span>
-            <span style="color:#C9A84C;font-weight:700;">TASK</span><span style="color:#CCDDEE;">Write a one-page patient letter explaining the finding.</span>
-            <span style="color:#C9A84C;font-weight:700;">FORMAT</span><span style="color:#CCDDEE;">Plain language, 7th-grade reading level, 3 paragraphs max.</span>
-            <span style="color:#C9A84C;font-weight:700;">CONSTRAINTS</span><span style="color:#CCDDEE;">Include: finding, follow-up rationale, and next steps.</span>
-          </div>
-          <div style="margin-top:10px;padding-top:8px;border-top:1px solid #1E3254;font-size:14px;color:#44CC88;font-weight:600;">&#x2192; Send-ready output. Every time.</div>
-        </div>
-        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">CHAIN-OF-THOUGHT (CoT)</div>
-          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;">Add <span style="background:#1B3A6B;padding:2px 8px;border-radius:3px;font-family:monospace;font-size:13px;">"Think step by step."</span> before your answer request. Forces the model to reason before concluding — dramatically reduces errors on clinical questions, differentials, and statistical interpretation.</div>
-          <div style="margin-top:8px;font-size:13px;color:#8899BB;font-style:italic;">"Think step by step. What are the most likely causes of this CT finding in a patient with…?"</div>
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+    <div style="font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Prompt Engineering</div>
+    <h2 style="font-size:56px;font-weight:900;margin-bottom:8px;">Structure your prompt. Transform your result.</h2>
+    <p style="font-size:20px;color:#8899BB;margin-bottom:28px;">Framework: <strong style="color:#F0F4FF;">Role · Context · Task · Format · Constraints</strong></p>
+    <div style="display:grid;grid-template-columns:1fr 100px 1fr;gap:0;align-items:stretch;margin-bottom:24px;">
+      <!-- Before -->
+      <div id="s4-before" style="background:#1a0508;border:2px solid #660011;border-radius:10px;padding:36px;">
+        <div style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#CC4444;font-weight:700;margin-bottom:16px;">❌  VAGUE PROMPT</div>
+        <div style="font-size:26px;color:#CCAAAA;font-style:italic;margin-bottom:20px;">"Write a patient letter about my findings"</div>
+        <div style="border-top:1px solid #330011;padding-top:16px;">
+          <div style="font-size:18px;color:#886666;">AI response:</div>
+          <div style="font-size:19px;color:#887777;margin-top:8px;line-height:1.5;">Dear Patient, I am writing to inform you about your recent test results. Please contact our office for follow-up...</div>
+          <div style="margin-top:12px;font-size:17px;color:#CC4444;font-weight:600;">→ Generic. Unusable. Requires rewrite.</div>
         </div>
       </div>
-
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">FEW-SHOT PROMPTING</div>
-          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;">Provide 2–3 examples of <em>input &#8594; desired output</em> before your actual request. Teaches the model your style, format, and clinical vocabulary without fine-tuning.</div>
-          <div style="margin-top:8px;background:#0A1628;border-radius:6px;padding:10px;font-size:13px;color:#AABBCC;font-family:monospace;line-height:1.6;">Example 1: [operative note] &#8594; [structured summary]<br>Example 2: [operative note] &#8594; [structured summary]<br>Now do this one: [your note]</div>
+      <!-- Arrow -->
+      <div style="display:flex;align-items:center;justify-content:center;font-size:52px;color:#C9A84C;">→</div>
+      <!-- After -->
+      <div id="s4-after" style="background:#05150A;border:2px solid #006622;border-radius:10px;padding:36px;">
+        <div style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#44CC88;font-weight:700;margin-bottom:16px;">✓  STRUCTURED PROMPT</div>
+        <div style="font-size:21px;color:#CCEECC;line-height:1.6;margin-bottom:20px;">
+          <span style="color:#C9A84C;font-weight:700;">Role:</span> "You are a thoracic surgeon."<br>
+          <span style="color:#C9A84C;font-weight:700;">Context:</span> "67-year-old patient, 1.2cm RLL nodule on CT"<br>
+          <span style="color:#C9A84C;font-weight:700;">Task:</span> "Write a one-page patient letter"<br>
+          <span style="color:#C9A84C;font-weight:700;">Format:</span> "Plain language, 7th grade reading level"<br>
+          <span style="color:#C9A84C;font-weight:700;">Constraints:</span> "Include: finding, follow-up rationale, next steps"
         </div>
-        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">SYSTEM PROMPTS &amp; PERSONAS</div>
-          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;">In ChatGPT Custom Instructions, Claude Projects, or the API <code style="background:#1B3A6B;padding:1px 5px;border-radius:3px;">system</code> field — define a persistent role that applies to every message. Build your own surgical AI with your institution's protocols baked in.</div>
-        </div>
-        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
-          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">ITERATIVE REFINEMENT</div>
-          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;"><strong style="color:#F0F4FF;">Draft &#8594; Critique &#8594; Revise.</strong> Ask it to critique its own output: <span style="background:#1B3A6B;padding:2px 8px;border-radius:3px;font-family:monospace;font-size:13px;">"What's missing or potentially incorrect above?"</span></div>
+        <div style="border-top:1px solid #004422;padding-top:16px;">
+          <div style="font-size:17px;color:#44CC88;font-weight:600;">→ Send-ready output. Every time.</div>
         </div>
       </div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+      <span style="font-size:17px;color:#8899BB;">Try it live:</span>
+      <span style="display:inline-block;background:#0F2547;border:1px solid #C9A84C;color:#C9A84C;padding:6px 18px;border-radius:20px;font-size:15px;font-weight:600;">learn.aatsqualitygateway.org/ai-playground/lesson5</span>
+      <span style="display:inline-block;background:#0F2547;border:1px solid #C9A84C;color:#C9A84C;padding:6px 18px;border-radius:20px;font-size:15px;font-weight:600;"><a style="pointer-events:auto;position:relative;z-index:100;" href="https://learn.aatsqualitygateway.org/workshop/prompt-engineering" target="_blank" style="color:#C9A84C;text-decoration:none;border-bottom:1px dotted #C9A84C;">learn.aatsqualitygateway.org/workshop/prompt-engineering</a></span>
     </div>
   </div>
 </div>
@@ -669,7 +666,7 @@
         </table>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <a href="https://drive.google.com/file/d/14HriDDHOX3wKladGC24AyUZo8cMikrQM/view?usp=sharing" target="_blank" style="display:inline-block;background:#CC0000;color:#fff;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#9654; Watch Demo</a>
-          <a href="http://aqg.eastus.cloudapp.azure.com:8501/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">Launch AskAQG &#8594;</a>
+          <a href="https://risk.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">Launch AskAQG &#8594;</a>
         </div>
       </div>
 
@@ -765,6 +762,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- ═══════════════════════════════════════════════
      S14 — FONTAN AI RECONSTRUCTION [407–437s]
@@ -1003,11 +1001,8 @@
   tl.from('#s13-url',  { y: 20, opacity: 0, duration: 0.6 }, 393.2);
   tl.from('#s13-sub',  { opacity: 0, duration: 0.5 }, 394.0);
 
-  // S14
   fadeSlide('s14', 407, 30);
-  // S15
   fadeSlide('s15', 437, 30);
-  // S16
   fadeSlide('s16', 467, 15);
 
   tl.play();
@@ -1040,7 +1035,6 @@
 
   function jumpTo(idx) {
     currentSlide = Math.max(0, Math.min(idx, slideIds.length - 1));
-    // Hide all, show target
     slideIds.forEach(id => {
       const el = document.getElementById(id);
       if (el) { el.style.opacity = '0'; el.style.pointerEvents = 'none'; }
