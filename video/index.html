@@ -285,42 +285,45 @@
      S4 — PROMPT ENGINEERING [56–81s]
 ═══════════════════════════════════════════════ -->
 <div id="s4" class="slide" data-composition-id="s4-root" data-start="56" data-duration="25" data-width="1920" data-height="1080" data-track-index="2">
-  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
-    <div style="font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Prompt Engineering</div>
-    <h2 style="font-size:56px;font-weight:900;margin-bottom:8px;">Structure your prompt. Transform your result.</h2>
-    <p style="font-size:20px;color:#8899BB;margin-bottom:28px;">Framework: <strong style="color:#F0F4FF;">Role · Context · Task · Format · Constraints</strong></p>
-    <div style="display:grid;grid-template-columns:1fr 100px 1fr;gap:0;align-items:stretch;margin-bottom:24px;">
-      <!-- Before -->
-      <div id="s4-before" style="background:#1a0508;border:2px solid #660011;border-radius:10px;padding:36px;">
-        <div style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#CC4444;font-weight:700;margin-bottom:16px;">❌  VAGUE PROMPT</div>
-        <div style="font-size:26px;color:#CCAAAA;font-style:italic;margin-bottom:20px;">"Write a patient letter about my findings"</div>
-        <div style="border-top:1px solid #330011;padding-top:16px;">
-          <div style="font-size:18px;color:#886666;">AI response:</div>
-          <div style="font-size:19px;color:#887777;margin-top:8px;line-height:1.5;">Dear Patient, I am writing to inform you about your recent test results. Please contact our office for follow-up...</div>
-          <div style="margin-top:12px;font-size:17px;color:#CC4444;font-weight:600;">→ Generic. Unusable. Requires rewrite.</div>
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:6px;">Prompt Engineering</div>
+    <h2 style="font-size:44px;font-weight:900;margin-bottom:18px;">Structure your prompt. Transform your result.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
+          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:10px;">THE 5-PART FRAMEWORK</div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:15px;">
+            <span style="color:#C9A84C;font-weight:700;">ROLE</span><span style="color:#CCDDEE;">You are a thoracic surgeon attending at a Level I trauma center.</span>
+            <span style="color:#C9A84C;font-weight:700;">CONTEXT</span><span style="color:#CCDDEE;">67-year-old, 1.2cm RLL nodule, ex-smoker, PET negative.</span>
+            <span style="color:#C9A84C;font-weight:700;">TASK</span><span style="color:#CCDDEE;">Write a one-page patient letter explaining the finding.</span>
+            <span style="color:#C9A84C;font-weight:700;">FORMAT</span><span style="color:#CCDDEE;">Plain language, 7th-grade reading level, 3 paragraphs max.</span>
+            <span style="color:#C9A84C;font-weight:700;">CONSTRAINTS</span><span style="color:#CCDDEE;">Include: finding, follow-up rationale, and next steps.</span>
+          </div>
+          <div style="margin-top:10px;padding-top:8px;border-top:1px solid #1E3254;font-size:14px;color:#44CC88;font-weight:600;">&#x2192; Send-ready output. Every time.</div>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
+          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">CHAIN-OF-THOUGHT (CoT)</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;">Add <span style="background:#1B3A6B;padding:2px 8px;border-radius:3px;font-family:monospace;font-size:13px;">"Think step by step."</span> before your answer request. Forces the model to reason before concluding — dramatically reduces errors on clinical questions, differentials, and statistical interpretation.</div>
+          <div style="margin-top:8px;font-size:13px;color:#8899BB;font-style:italic;">"Think step by step. What are the most likely causes of this CT finding in a patient with…?"</div>
         </div>
       </div>
-      <!-- Arrow -->
-      <div style="display:flex;align-items:center;justify-content:center;font-size:52px;color:#C9A84C;">→</div>
-      <!-- After -->
-      <div id="s4-after" style="background:#05150A;border:2px solid #006622;border-radius:10px;padding:36px;">
-        <div style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#44CC88;font-weight:700;margin-bottom:16px;">✓  STRUCTURED PROMPT</div>
-        <div style="font-size:21px;color:#CCEECC;line-height:1.6;margin-bottom:20px;">
-          <span style="color:#C9A84C;font-weight:700;">Role:</span> "You are a thoracic surgeon."<br>
-          <span style="color:#C9A84C;font-weight:700;">Context:</span> "67-year-old patient, 1.2cm RLL nodule on CT"<br>
-          <span style="color:#C9A84C;font-weight:700;">Task:</span> "Write a one-page patient letter"<br>
-          <span style="color:#C9A84C;font-weight:700;">Format:</span> "Plain language, 7th grade reading level"<br>
-          <span style="color:#C9A84C;font-weight:700;">Constraints:</span> "Include: finding, follow-up rationale, next steps"
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
+          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">FEW-SHOT PROMPTING</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;">Provide 2–3 examples of <em>input &#8594; desired output</em> before your actual request. Teaches the model your style, format, and clinical vocabulary without fine-tuning.</div>
+          <div style="margin-top:8px;background:#0A1628;border-radius:6px;padding:10px;font-size:13px;color:#AABBCC;font-family:monospace;line-height:1.6;">Example 1: [operative note] &#8594; [structured summary]<br>Example 2: [operative note] &#8594; [structured summary]<br>Now do this one: [your note]</div>
         </div>
-        <div style="border-top:1px solid #004422;padding-top:16px;">
-          <div style="font-size:17px;color:#44CC88;font-weight:600;">→ Send-ready output. Every time.</div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
+          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">SYSTEM PROMPTS &amp; PERSONAS</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;">In ChatGPT Custom Instructions, Claude Projects, or the API <code style="background:#1B3A6B;padding:1px 5px;border-radius:3px;">system</code> field — define a persistent role that applies to every message. Build your own surgical AI with your institution's protocols baked in.</div>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:18px;">
+          <div style="font-size:14px;font-weight:800;letter-spacing:2px;color:#C9A84C;margin-bottom:8px;">ITERATIVE REFINEMENT</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.6;"><strong style="color:#F0F4FF;">Draft &#8594; Critique &#8594; Revise.</strong> Ask it to critique its own output: <span style="background:#1B3A6B;padding:2px 8px;border-radius:3px;font-family:monospace;font-size:13px;">"What's missing or potentially incorrect above?"</span></div>
         </div>
       </div>
-    </div>
-    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-      <span style="font-size:17px;color:#8899BB;">Try it live:</span>
-      <span style="display:inline-block;background:#0F2547;border:1px solid #C9A84C;color:#C9A84C;padding:6px 18px;border-radius:20px;font-size:15px;font-weight:600;">learn.aatsqualitygateway.org/ai-playground/lesson5</span>
-      <span style="display:inline-block;background:#0F2547;border:1px solid #C9A84C;color:#C9A84C;padding:6px 18px;border-radius:20px;font-size:15px;font-weight:600;"><a style="pointer-events:auto;position:relative;z-index:100;" href="https://learn.aatsqualitygateway.org/workshop/prompt-engineering" target="_blank" style="color:#C9A84C;text-decoration:none;border-bottom:1px dotted #C9A84C;">learn.aatsqualitygateway.org/workshop/prompt-engineering</a></span>
     </div>
   </div>
 </div>
@@ -666,7 +669,7 @@
         </table>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <a href="https://drive.google.com/file/d/14HriDDHOX3wKladGC24AyUZo8cMikrQM/view?usp=sharing" target="_blank" style="display:inline-block;background:#CC0000;color:#fff;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#9654; Watch Demo</a>
-          <a href="https://risk.aatsqualitygateway.org" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">Launch AskAQG &#8594;</a>
+          <a href="http://aqg.eastus.cloudapp.azure.com:8501/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">Launch AskAQG &#8594;</a>
         </div>
       </div>
 
@@ -763,6 +766,159 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════
+     S14 — FONTAN AI RECONSTRUCTION [407–437s]
+═══════════════════════════════════════════════ -->
+<div id="s14" class="slide" data-composition-id="s14-root" data-start="407" data-duration="30" data-width="1920" data-height="1080" data-track-index="2">
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:4px;">AATS Annual Meeting · Monday May 4, 2026 · 7:30AM · Congenital Rapid Fire Orals · Room E451A</div>
+    <h2 style="font-size:42px;font-weight:900;margin-bottom:4px;">Generative AI for 3D Vascular Reconstruction</h2>
+    <p style="font-size:18px;color:#8899BB;margin-bottom:20px;">RF48 · Fontan Geometries from 2D Contrast-Enhanced X-Ray Fluoroscopy · Prahlad Menon, PhD</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">THE CLINICAL PROBLEM</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;">Failing Fontan patients require precise 3D vascular geometry for pre-operative planning and computational fluid dynamics (CFD). Traditional 3D reconstruction requires dedicated CT/MRI — often unavailable at time of re-intervention.</div>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">THE AI PIPELINE</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;margin-bottom:12px;">
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;color:#C9A84C;font-weight:700;">2D Angiogram</span>
+            <span style="color:#C9A84C;font-size:18px;">&#8594;</span>
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;text-align:center;">Gemini Flash 2.5<br><span style="font-size:11px;color:#8899BB;">Vascular enhancement + segmentation</span></span>
+            <span style="color:#C9A84C;font-size:18px;">&#8594;</span>
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;text-align:center;">Hunyuan3D<br><span style="font-size:11px;color:#8899BB;">3D geometry synthesis</span></span>
+            <span style="color:#C9A84C;font-size:18px;">&#8594;</span>
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;color:#44CC88;font-weight:700;text-align:center;">STL / OBJ / GLB<br><span style="font-size:11px;">CFD-ready mesh</span></span>
+          </div>
+          <a href="https://github.com/menonpg/fontan-ai-reconstruction" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#x1F517; github.com/menonpg/fontan-ai-reconstruction &#8594;</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">WHY THIS MATTERS</div>
+          <ul style="font-size:15px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+            <li>Works with standard 2D fluoroscopy — <strong style="color:#F0F4FF;">no dedicated 3D imaging required</strong></li>
+            <li>Prompt-driven reconstruction — surgeon guides AI interactively</li>
+            <li>Output feeds directly into hemodynamic simulation (CFD) tools</li>
+            <li>Fully open-source — reproducible and extensible</li>
+          </ul>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">MODELS USED</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Gemini Flash 2.5</div><div style="color:#8899BB;font-size:13px;">Medical image preprocessing + segmentation</div></div>
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Hunyuan3D-2.0</div><div style="color:#8899BB;font-size:13px;">Image &#8594; 3D mesh generation (open-source)</div></div>
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Veo-3</div><div style="color:#8899BB;font-size:13px;">Video reconstruction visualization</div></div>
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Open Source Stack</div><div style="color:#8899BB;font-size:13px;">Next.js · STL/OBJ/GLB export · CFD-ready</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     S15 — JTCVS AI VIDEO LIBRARY [437–467s]
+═══════════════════════════════════════════════ -->
+<div id="s15" class="slide" data-composition-id="s15-root" data-start="437" data-duration="30" data-width="1920" data-height="1080" data-track-index="2">
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:4px;">AATS Annual Meeting · Monday May 4, 2026 · 2:35PM · JTCVS Forum: AI in Scholarly Publication · Room E353C</div>
+    <h2 style="font-size:42px;font-weight:900;margin-bottom:4px;">AI in Scholarly Publication: What Does the Future Look Like?</h2>
+    <p style="font-size:18px;color:#8899BB;margin-bottom:20px;">Prahlad Menon, PhD · JTCVS Forum · Opportunities and Pitfalls</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">JTCVS SURGICAL VIDEO LIBRARY</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">45+ surgical technique videos from JTCVS Open &amp; JTCVS Techniques. AI-powered semantic search across full video transcripts. Ask questions, get answers grounded in actual surgical content.</div>
+          <div style="font-size:13px;color:#8899BB;margin-bottom:10px;">RAG over transcripts · Azure OpenAI · Qdrant vector DB · PubMed integration</div>
+          <a href="https://video-library.jtcvs.org/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#x1F517; video-library.jtcvs.org &#8594;</a>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">JTCVS MANUSCRIPT FORMATTER</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">AI-assisted tool that reformats submissions to JTCVS journal style: word limits, figure formatting, reference style, structured abstract.</div>
+          <a href="https://formatter.jtcvs.org/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#x1F517; formatter.jtcvs.org &#8594;</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">AI'S ROLE IN SCHOLARLY PUBLICATION</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;">AI is transforming every stage of the manuscript lifecycle — from literature discovery and drafting to peer review assistance, figure generation, and now video transcription and semantic indexing of surgical technique content.</div>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:12px;">OPPORTUNITIES &amp; PITFALLS</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+            <div>
+              <div style="color:#44CC88;font-weight:700;margin-bottom:6px;">&#x2714; Opportunities</div>
+              <ul style="color:#CCDDEE;padding-left:16px;margin:0;line-height:1.9;">
+                <li>Faster literature review</li>
+                <li>Consistent formatting</li>
+                <li>Video content indexing</li>
+                <li>Global accessibility</li>
+              </ul>
+            </div>
+            <div>
+              <div style="color:#CC4444;font-weight:700;margin-bottom:6px;">&#x26A0; Pitfalls</div>
+              <ul style="color:#CCDDEE;padding-left:16px;margin:0;line-height:1.9;">
+                <li>Fabricated citations</li>
+                <li>Homogenized writing</li>
+                <li>Authorship integrity</li>
+                <li>Peer review gaming</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     S16 — ALL TALKS AT A GLANCE [467–482s]
+═══════════════════════════════════════════════ -->
+<div id="s16" class="slide" data-composition-id="s16-root" data-start="467" data-duration="15" data-width="1920" data-height="1080" data-track-index="2">
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;display:flex;flex-direction:column;justify-content:center;">
+    <h2 style="font-size:46px;font-weight:900;margin-bottom:6px;">AATS Annual Meeting 2026 · Chicago</h2>
+    <p style="font-size:19px;color:#8899BB;margin-bottom:24px;">Prahlad Menon, PhD, PMP · AATS Quality Gateway</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Saturday, May 2 · AI for Surgeons: The Practical Toolkit · Room E353A</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">7:45 AM · Interacting with LLMs: Live Demo</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">8:15 AM · AI for the Practicing Surgeon and Researcher: Live Demo</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Monday, May 4</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">7:30 AM · RF48. Generative AI for 3D Vascular Reconstruction of Fontan Geometries</div>
+            <div style="font-size:13px;color:#8899BB;margin-top:2px;">Congenital Rapid Fire Orals · Room E451A</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">2:35 PM · What Does the Future Look Like?</div>
+            <div style="font-size:13px;color:#8899BB;margin-top:2px;">JTCVS Forum: AI in Scholarly Publication · Room E353C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px;text-align:center;font-size:15px;color:#556688;">
+      <a href="https://menonpg.github.io/aats-surgeon-video/" target="_blank" style="color:#C9A84C;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">menonpg.github.io/aats-surgeon-video</a>
+      &nbsp;·&nbsp;
+      <a href="https://learn.aatsqualitygateway.org" target="_blank" style="color:#C9A84C;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">learn.aatsqualitygateway.org</a>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <script>
   window.__timelines = window.__timelines || {};
@@ -851,21 +1007,7 @@
   window.__timelines["main"] = tl;
 
   // ── Manual navigation ──────────────────────────────
-  const slideTimings = [
-    { id: 's1',  start: 0   },
-    { id: 's2',  start: 6   },
-    { id: 's3',  start: 26  },
-    { id: 's4',  start: 56  },
-    { id: 's5',  start: 81  },
-    { id: 's6',  start: 101 },
-    { id: 's7',  start: 146 },
-    { id: 's8',  start: 176 },
-    { id: 's9',  start: 221 },
-    { id: 's10', start: 241 },
-    { id: 's11', start: 296 },
-    { id: 's12', start: 362 },
-    { id: 's13', start: 392 }
-  ];
+  const slideTimings = [0,6,26,56,81,101,146,176,221,241,296,362,392,407,437,467];
 
   let currentSlide = 0;
   let isPaused = false;
