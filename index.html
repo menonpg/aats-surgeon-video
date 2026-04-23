@@ -131,7 +131,7 @@
 ═══════════════════════════════════════════════ -->
 <div id="hdr" style="position:absolute;top:0;left:0;right:0;height:80px;background:#0F2547;border-bottom:3px solid #C9A84C;display:flex;align-items:center;padding:0 60px;gap:16px;z-index:50;"
      data-composition-id="hdr" data-start="0" data-duration="407" data-width="1920" data-height="80" data-track-index="3">
-  
+  <img src="assets/aats-logo.jpg" style="height:52px;" alt="AATS"/>
   <span style="font-size:17px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;">Quality Gateway · AI Literacy &amp; Application</span>
   <span style="margin-left:auto;font-size:15px;color:#8899BB;letter-spacing:1px;">AATS Annual Meeting 2026 · Chicago · May 2</span>
 </div>
@@ -804,6 +804,79 @@
 
   tl.play();
   window.__timelines["main"] = tl;
+
+  // ── Manual navigation ──────────────────────────────
+  const slideTimings = [
+    { id: 's1',  start: 0   },
+    { id: 's2',  start: 6   },
+    { id: 's3',  start: 26  },
+    { id: 's4',  start: 56  },
+    { id: 's5',  start: 81  },
+    { id: 's6',  start: 101 },
+    { id: 's7',  start: 146 },
+    { id: 's8',  start: 176 },
+    { id: 's9',  start: 221 },
+    { id: 's10', start: 241 },
+    { id: 's11', start: 296 },
+    { id: 's12', start: 362 },
+    { id: 's13', start: 392 }
+  ];
+
+  let currentSlide = 0;
+  let isPaused = false;
+
+  // Nav UI
+  const nav = document.createElement('div');
+  nav.innerHTML = `
+    <div id="nav-ui" style="position:fixed;bottom:60px;left:50%;transform:translateX(-50%);
+      display:flex;align-items:center;gap:12px;background:rgba(10,22,40,0.92);
+      border:1px solid #C9A84C;border-radius:40px;padding:10px 24px;z-index:999;
+      font-family:Inter,system-ui,sans-serif;">
+      <button id="nav-prev" style="background:none;border:1px solid #C9A84C;color:#C9A84C;
+        padding:7px 18px;border-radius:20px;cursor:pointer;font-size:18px;font-weight:700;">◀</button>
+      <span id="nav-label" style="color:#F0F4FF;font-size:15px;min-width:120px;text-align:center;letter-spacing:1px;">1 / 13</span>
+      <button id="nav-next" style="background:none;border:1px solid #C9A84C;color:#C9A84C;
+        padding:7px 18px;border-radius:20px;cursor:pointer;font-size:18px;font-weight:700;">▶</button>
+      <button id="nav-play" style="background:#C9A84C;border:none;color:#0A1628;
+        padding:7px 18px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;">⏸ Pause</button>
+    </div>`;
+  document.body.appendChild(nav);
+
+  function jumpTo(idx) {
+    currentSlide = Math.max(0, Math.min(idx, slideTimings.length - 1));
+    tl.seek(slideTimings[currentSlide].start);
+    if (isPaused) tl.pause();
+    document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideTimings.length}`;
+  }
+
+  document.getElementById('nav-prev').onclick = () => jumpTo(currentSlide - 1);
+  document.getElementById('nav-next').onclick = () => jumpTo(currentSlide + 1);
+  document.getElementById('nav-play').onclick = () => {
+    isPaused = !isPaused;
+    isPaused ? tl.pause() : tl.play();
+    document.getElementById('nav-play').textContent = isPaused ? '▶ Play' : '⏸ Pause';
+  };
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') jumpTo(currentSlide + 1);
+    if (e.key === 'ArrowLeft') jumpTo(currentSlide - 1);
+    if (e.key === 'p' || e.key === 'P') document.getElementById('nav-play').click();
+  });
+
+  // Auto-advance tracking
+  tl.eventCallback('onUpdate', () => {
+    const t = tl.time();
+    for (let i = slideTimings.length - 1; i >= 0; i--) {
+      if (t >= slideTimings[i].start) {
+        if (currentSlide !== i) {
+          currentSlide = i;
+          document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideTimings.length}`;
+        }
+        break;
+      }
+    }
+  });
 </script>
 </body>
 </html>
