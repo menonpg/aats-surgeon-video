@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --navy2: #0F2547;
+      --gold: #C9A84C;
+      --bg: #0A1628;
+      --text: #F0F4FF;
+      --dim: #8899BB;
+      --border: #1E3254;
+      --card: #0F1E3A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow: hidden; }
+    .slide {
+      position: absolute; top: 0; left: 0;
+      width: 1920px; height: 1080px;
+      background: var(--bg);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: auto; }
+    #stage {
+      width: 100vw; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    #canvas {
+      position: relative;
+      width: 1920px; height: 1080px;
+      transform-origin: top left;
+    }
+    .hdr {
+      position: absolute; top: 0; left: 0; right: 0; height: 76px;
+      background: var(--navy); border-bottom: 2px solid var(--gold);
+      display: flex; align-items: center; padding: 0 60px;
+      z-index: 10; pointer-events: none;
+    }
+    .hdr-logo { height: 44px; margin-right: 20px; }
+    .hdr-title { font-size: 22px; font-weight: 700; color: var(--text); }
+    .hdr-tag { margin-left: auto; font-size: 14px; color: var(--gold); font-weight: 600; letter-spacing: 2px; }
+    .ftr {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 52px;
+      background: var(--navy2); border-top: 2px solid var(--border);
+      display: flex; align-items: center; padding: 0 60px;
+      font-size: 14px; color: var(--dim); z-index: 10; pointer-events: none;
+    }
+    .ftr-right { margin-left: auto; }
+    #nav {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(15,37,71,0.95); border: 1px solid var(--gold);
+      border-radius: 32px; padding: 10px 24px;
+      z-index: 9999; pointer-events: auto;
+    }
+    #nav button {
+      background: none; border: 1px solid var(--gold); color: var(--gold);
+      padding: 6px 18px; border-radius: 20px; font-size: 16px;
+      cursor: pointer; font-family: inherit; font-weight: 600;
+    }
+    #nav button:hover { background: var(--gold); color: var(--bg); }
+    #nav-label { font-size: 15px; color: var(--dim); min-width: 60px; text-align: center; }
+    a { color: var(--gold); text-decoration: none; pointer-events: auto; position: relative; z-index: 100; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div id="stage">
+  <div id="canvas">
+
+    <!-- HEADER -->
+    <div class="hdr">
+      <img src="../assets/aats-logo.jpg" class="hdr-logo" alt="AATS"/>
+      <div class="hdr-title">AI in Scholarly Publication: What Does the Future Look Like?</div>
+      <div class="hdr-tag">JTCVS FORUM · MAY 4, 2026 · 2:35 PM</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="ftr">
+      <span>Prahlad Menon, PhD, PMP · AATS Quality Gateway</span>
+      <span class="ftr-right">JTCVS Forum: AI in Scholarly Publication · Room E353C</span>
+    </div>
+
+    <!-- ═══════ SLIDE 1 — TITLE ═══════ -->
+    <div id="j1" class="slide active">
+      <div style="position:absolute;top:76px;bottom:52px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#C9A84C;margin-bottom:24px;">AATS Annual Meeting 2026 · Monday May 4 · 2:35 PM · JTCVS Forum · Room E353C</div>
+        <h1 style="font-size:72px;font-weight:900;line-height:1.1;max-width:1400px;margin-bottom:20px;">What Does the Future Look Like?</h1>
+        <div style="font-size:30px;color:#C9A84C;font-weight:600;margin-bottom:8px;">AI in Scholarly Publication: Opportunities and Pitfalls</div>
+        <div style="font-size:20px;color:#8899BB;margin-bottom:36px;">JTCVS Forum Session</div>
+        <div style="font-size:22px;font-weight:800;">Prahlad Menon, PhD, PMP</div>
+        <div style="font-size:18px;color:#C9A84C;margin-top:4px;">AATS Quality Gateway</div>
+      </div>
+    </div>
+
+    <!-- ═══════ SLIDE 2 — THE LANDSCAPE ═══════ -->
+    <div id="j2" class="slide">
+      <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">The Landscape</div>
+        <h2 style="font-size:52px;font-weight:900;margin-bottom:24px;">AI is already in the publication pipeline. The question is how.</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F50D; DISCOVERY</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">AI-powered literature search, semantic synthesis, automatic summarization of 200+ papers in minutes.</div>
+            <div style="font-size:13px;color:#8899BB;">Open Evidence · Elicit · Consensus · Semantic Scholar</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x270D;&#xFE0F; DRAFTING</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">GPT-5, Claude Opus, Gemini: structured abstracts, discussion sections, cover letters, response-to-reviewers.</div>
+            <div style="font-size:13px;color:#8899BB;">ChatGPT · Claude Projects · Gemini · Copilot</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F4CA; DATA &amp; FIGURES</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">Upload CSV → Kaplan-Meier curves, multivariate regression, publication-ready figures. No R or Python required.</div>
+            <div style="font-size:13px;color:#8899BB;">ChatGPT Data Analysis · Claude Artifacts · Julius AI</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F4F9; VIDEO &amp; MEDIA</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">Auto-transcription, semantic indexing, AI Q&amp;A over surgical technique video libraries. The JTCVS platform.</div>
+            <div style="font-size:13px;color:#8899BB;"><a href="https://video-library.jtcvs.org" target="_blank">video-library.jtcvs.org</a></div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F4DD; FORMATTING</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">Journal-specific formatting: word limits, figure style, reference format, structured abstracts — automated.</div>
+            <div style="font-size:13px;color:#8899BB;"><a href="https://formatter.jtcvs.org" target="_blank">formatter.jtcvs.org</a></div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+            <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F50E; PEER REVIEW</div>
+            <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">AI assists reviewers in identifying methodology gaps, statistical errors, and citation accuracy — but raises integrity questions.</div>
+            <div style="font-size:13px;color:#8899BB;">Emerging tools · Active debate in journals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ SLIDE 3 — JTCVS VIDEO LIBRARY ═══════ -->
+    <div id="j3" class="slide">
+      <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Live Demo</div>
+        <h2 style="font-size:52px;font-weight:900;margin-bottom:24px;">JTCVS Surgical Video Library + AI Assistant</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:10px;">WHAT IT DOES</div>
+              <ul style="font-size:16px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+                <li>Browse 45+ surgical videos from JTCVS Open &amp; JTCVS Techniques</li>
+                <li>AI-powered <strong style="color:#F0F4FF;">semantic search</strong> across full transcripts</li>
+                <li>Ask natural language questions — get grounded answers</li>
+                <li>Video player with synchronized subtitles</li>
+                <li>PubMed integration for supplemental literature</li>
+                <li>Context-aware Q&amp;A per individual video</li>
+              </ul>
+            </div>
+            <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:10px;">TECHNICAL STACK</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+                <div style="background:#0A1628;padding:8px;border-radius:5px;"><div style="color:#C9A84C;font-weight:600;">RAG</div><div style="color:#8899BB;">Retrieval over video transcripts via Qdrant</div></div>
+                <div style="background:#0A1628;padding:8px;border-radius:5px;"><div style="color:#C9A84C;font-weight:600;">Azure OpenAI</div><div style="color:#8899BB;">Embeddings + GPT-4o for Q&amp;A</div></div>
+                <div style="background:#0A1628;padding:8px;border-radius:5px;"><div style="color:#C9A84C;font-weight:600;">Deepgram</div><div style="color:#8899BB;">Auto-transcription with timestamps</div></div>
+                <div style="background:#0A1628;padding:8px;border-radius:5px;"><div style="color:#C9A84C;font-weight:600;">PubMed API</div><div style="color:#8899BB;">Supplemental literature search</div></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #44CC88;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#44CC88;margin-bottom:10px;">EXAMPLE QUERIES</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="background:#0A1628;border-radius:6px;padding:10px 14px;font-size:15px;color:#CCDDEE;font-style:italic;">"What techniques are used for aortic valve repair in bicuspid valves?"</div>
+                <div style="background:#0A1628;border-radius:6px;padding:10px 14px;font-size:15px;color:#CCDDEE;font-style:italic;">"Show me videos that demonstrate robotic mitral repair"</div>
+                <div style="background:#0A1628;border-radius:6px;padding:10px 14px;font-size:15px;color:#CCDDEE;font-style:italic;">"What does the JTCVS say about minimizing cardioplegia time?"</div>
+              </div>
+            </div>
+            <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#C9A84C;margin-bottom:12px;">ACCESS</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <a href="https://video-library.jtcvs.org/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:10px 18px;border-radius:6px;font-size:15px;font-weight:600;">&#x1F517; video-library.jtcvs.org</a>
+                <a href="https://formatter.jtcvs.org/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:10px 18px;border-radius:6px;font-size:15px;font-weight:600;">&#x1F517; formatter.jtcvs.org — Manuscript Formatter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ SLIDE 4 — OPPORTUNITIES ═══════ -->
+    <div id="j4" class="slide">
+      <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Opportunities</div>
+        <h2 style="font-size:52px;font-weight:900;margin-bottom:24px;">AI makes every researcher more productive. Here's how.</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:#05150A;border:1px solid #006622;border-top:3px solid #44CC88;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#44CC88;margin-bottom:12px;">&#x26A1; SPEED &amp; SCALE</div>
+              <ul style="font-size:16px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+                <li>Screen 200 papers in minutes, not weeks</li>
+                <li>Generate structured abstracts from methods + results</li>
+                <li>Produce publication-ready figures from raw data instantly</li>
+                <li>Respond to reviewer comments faster with AI assistance</li>
+              </ul>
+            </div>
+            <div style="background:#05150A;border:1px solid #006622;border-top:3px solid #44CC88;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#44CC88;margin-bottom:12px;">&#x1F30D; GLOBAL ACCESS</div>
+              <ul style="font-size:16px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+                <li>Researchers in low-resource settings get same tools</li>
+                <li>Language translation removes non-English barriers</li>
+                <li>Video libraries become searchable, accessible globally</li>
+                <li>Open-source pipelines democratize advanced analysis</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:#05150A;border:1px solid #006622;border-top:3px solid #44CC88;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#44CC88;margin-bottom:12px;">&#x1F4D6; NEW PUBLICATION FORMATS</div>
+              <ul style="font-size:16px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+                <li>AI-generated surgical video summaries with searchable transcripts</li>
+                <li>Interactive figures and dynamic data visualization</li>
+                <li>Living documents that update as evidence evolves</li>
+                <li>Multimodal papers: text + video + 3D model in one submission</li>
+              </ul>
+            </div>
+            <div style="background:#05150A;border:1px solid #006622;border-top:3px solid #44CC88;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#44CC88;margin-bottom:12px;">&#x1F50D; PEER REVIEW ENHANCEMENT</div>
+              <ul style="font-size:16px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+                <li>AI flagging of statistical errors before reviewer sees manuscript</li>
+                <li>Automatic citation verification</li>
+                <li>Bias detection in study design</li>
+                <li>Consistency checks across methods, results, and conclusions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ SLIDE 5 — PITFALLS ═══════ -->
+    <div id="j5" class="slide">
+      <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">Pitfalls</div>
+        <h2 style="font-size:52px;font-weight:900;margin-bottom:24px;">The risks are real. The field is moving faster than policy.</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:#1a0508;border:1px solid #660011;border-top:3px solid #CC4444;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#CC4444;margin-bottom:12px;">&#x26D4; FABRICATION &amp; HALLUCINATION</div>
+              <div style="font-size:16px;color:#CCDDEE;line-height:1.7;">LLMs confidently fabricate citations, invent statistics, and hallucinate author names. In biomedical literature, this causes direct patient harm if unchecked. <strong style="color:#F0F4FF;">Always verify every citation.</strong></div>
+            </div>
+            <div style="background:#1a0508;border:1px solid #660011;border-top:3px solid #CC4444;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#CC4444;margin-bottom:12px;">&#x1F4DD; AUTHORSHIP INTEGRITY</div>
+              <div style="font-size:16px;color:#CCDDEE;line-height:1.7;">Who is the author of an AI-assisted paper? ICMJE: AI cannot be an author. But undisclosed AI use is now widespread. Journals are racing to develop disclosure standards. <strong style="color:#F0F4FF;">Transparency is non-negotiable.</strong></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:#1a0508;border:1px solid #660011;border-top:3px solid #CC4444;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#CC4444;margin-bottom:12px;">&#x1F4AC; HOMOGENIZATION OF SCIENCE</div>
+              <div style="font-size:16px;color:#CCDDEE;line-height:1.7;">When everyone uses the same AI tools trained on the same corpora, scientific writing converges. Novel ideas get smoothed into familiar framings. <strong style="color:#F0F4FF;">Use AI as a tool, not a ghostwriter.</strong></div>
+            </div>
+            <div style="background:#1a0508;border:1px solid #660011;border-top:3px solid #CC4444;border-radius:10px;padding:22px;">
+              <div style="font-size:15px;font-weight:800;color:#CC4444;margin-bottom:12px;">&#x1F575;&#xFE0F; PEER REVIEW GAMING</div>
+              <div style="font-size:16px;color:#CCDDEE;line-height:1.7;">AI can write convincing-sounding peer reviews. Predatory journals are already using AI to rubber-stamp submissions. The integrity of the review system depends on human accountability. <strong style="color:#F0F4FF;">Know your reviewer.</strong></div>
+            </div>
+            <div style="background:#0F1E3A;border:1px solid #1E3254;border-radius:8px;padding:18px;font-size:16px;color:#AABBCC;line-height:1.5;">
+              <strong style="color:#C9A84C;">The bottom line:</strong> AI is a force multiplier for research productivity. Its risks are manageable with transparency, verification, and journal policy. The field that adapts thoughtfully will lead.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ SLIDE 6 — SUMMARY ═══════ -->
+    <div id="j6" class="slide">
+      <div style="position:absolute;top:76px;bottom:52px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 80px;">
+        <h2 style="font-size:58px;font-weight:900;margin-bottom:8px;text-align:center;">The Future Is Already Here</h2>
+        <p style="font-size:20px;color:#8899BB;margin-bottom:36px;text-align:center;">It's just not evenly distributed. Let's change that.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:1400px;margin-bottom:28px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:24px;">
+            <div style="font-size:17px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F4F9; JTCVS Video Library</div>
+            <div style="font-size:15px;color:#CCDDEE;margin-bottom:12px;">45+ surgical videos. Semantic search. AI Q&amp;A over transcripts. Live today.</div>
+            <a href="https://video-library.jtcvs.org/" target="_blank" style="color:#C9A84C;font-size:15px;font-weight:600;">video-library.jtcvs.org →</a>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:24px;">
+            <div style="font-size:17px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F4DD; JTCVS Formatter</div>
+            <div style="font-size:15px;color:#CCDDEE;margin-bottom:12px;">AI-assisted manuscript preparation for JTCVS journal style. Live today.</div>
+            <a href="https://formatter.jtcvs.org/" target="_blank" style="color:#C9A84C;font-size:15px;font-weight:600;">formatter.jtcvs.org →</a>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:24px;">
+            <div style="font-size:17px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x2696;&#xFE0F; Policy Principles</div>
+            <ul style="font-size:15px;color:#CCDDEE;padding-left:16px;line-height:1.9;margin:0;">
+              <li>Disclose AI use in methods section</li>
+              <li>Verify every AI-generated citation</li>
+              <li>Authors remain accountable for all content</li>
+            </ul>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:24px;">
+            <div style="font-size:17px;font-weight:800;color:#C9A84C;margin-bottom:12px;">&#x1F680; What's Coming</div>
+            <ul style="font-size:15px;color:#CCDDEE;padding-left:16px;line-height:1.9;margin:0;">
+              <li>Multimodal papers: text + video + 3D model</li>
+              <li>AI-augmented peer review with guardrails</li>
+              <li>Living systematic reviews, updated in real-time</li>
+            </ul>
+          </div>
+        </div>
+        <div style="font-size:16px;color:#556688;text-align:center;">
+          <a href="https://menonpg.github.io/aats-surgeon-video/" target="_blank">menonpg.github.io/aats-surgeon-video</a>
+          &nbsp;·&nbsp;
+          <a href="https://learn.aatsqualitygateway.org" target="_blank">learn.aatsqualitygateway.org</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /canvas -->
+</div><!-- /stage -->
+
+<div id="nav">
+  <button id="btn-prev">&#9664;</button>
+  <span id="nav-label">1 / 6</span>
+  <button id="btn-next">&#9654;</button>
+</div>
+
+<script>
+  const slides = ['j1','j2','j3','j4','j5','j6'];
+  let cur = 0;
+
+  function scale() {
+    const canvas = document.getElementById('canvas');
+    const sx = window.innerWidth / 1920;
+    const sy = window.innerHeight / 1080;
+    const s = Math.min(sx, sy);
+    canvas.style.transform = `scale(${s})`;
+    canvas.style.marginLeft = `${(window.innerWidth - 1920*s)/2}px`;
+    canvas.style.marginTop = `${(window.innerHeight - 1080*s)/2}px`;
+  }
+  window.addEventListener('resize', scale); scale();
+
+  function goTo(n) {
+    document.getElementById(slides[cur]).classList.remove('active');
+    cur = Math.max(0, Math.min(slides.length-1, n));
+    document.getElementById(slides[cur]).classList.add('active');
+    document.getElementById('nav-label').textContent = `${cur+1} / ${slides.length}`;
+  }
+
+  document.getElementById('btn-prev').onclick = () => goTo(cur-1);
+  document.getElementById('btn-next').onclick = () => goTo(cur+1);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') goTo(cur+1);
+    if (e.key === 'ArrowLeft') goTo(cur-1);
+  });
+</script>
+</body>
+</html>
