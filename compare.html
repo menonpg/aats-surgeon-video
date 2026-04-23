@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AATS Surgeon Video — Compare Versions</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#0A1628; font-family:Inter,system-ui,sans-serif; color:#fff; padding:40px; }
+    h1 { font-size:32px; font-weight:900; margin-bottom:8px; }
+    h1 span { color:#C9A84C; }
+    .sub { color:#8899BB; font-size:18px; margin-bottom:40px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .card {
+      background:#0F1E3A; border:1px solid #1E3254;
+      border-top:3px solid #C9A84C; border-radius:10px; padding:28px;
+    }
+    .card h2 { font-size:22px; font-weight:800; margin-bottom:8px; }
+    .card .label { font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#C9A84C; margin-bottom:12px; }
+    .card p { font-size:15px; color:#8899BB; line-height:1.5; margin-bottom:20px; }
+    .btn {
+      display:inline-block; background:#C9A84C; color:#0A1628;
+      padding:12px 28px; border-radius:6px; font-weight:700;
+      font-size:16px; text-decoration:none;
+    }
+    .btn.ghost { background:transparent; border:1px solid #C9A84C; color:#C9A84C; }
+  </style>
+</head>
+<body>
+  <h1>AATS Surgeon Video — <span>Version Compare</span></h1>
+  <p class="sub">AI for Surgeons: A Practical Toolkit · AATS Annual Meeting 2026 · May 2 · Chicago</p>
+  <div class="grid">
+    <div class="card">
+      <div class="label">Snapshot</div>
+      <h2>v1 — Current Build</h2>
+      <p>Navy/gold AATS branding. 13 slides. SVG illustrations. All citations linked. Open + closed-source models. Correct model versions (Opus 4.7, GPT-5.4, Gemini 3.1 Pro, Grok 3, Llama 4, Qwen3, DeepSeek V4). Keyboard + click navigation.</p>
+      <a href="v1/index.html" class="btn ghost">View v1 →</a>
+    </div>
+    <div class="card">
+      <div class="label">In Progress</div>
+      <h2>v2 — Next Build</h2>
+      <p>Richer visuals, illustrations, real screenshots. More content depth. Narration audio. NotebookLM-quality polish.</p>
+      <a href="index.html" class="btn">View v2 (live) →</a>
+    </div>
+  </div>
+  <div style="margin-top:32px;font-size:14px;color:#556688;">
+    Source: <a href="https://github.com/menonpg/aats-surgeon-video" style="color:#C9A84C;">github.com/menonpg/aats-surgeon-video</a>
+  </div>
+</body>
+</html>
