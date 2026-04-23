@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AATS Surgeon Video — Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #050505; font-family: Inter, system-ui, sans-serif; }
+    h1 { color: #fff; text-align: center; padding: 30px; font-size: 28px; }
+    h1 span { color: #CC0000; }
+    .controls { text-align: center; padding: 16px; }
+    .controls a {
+      display: inline-block; margin: 6px; padding: 12px 24px;
+      background: #CC0000; color: #fff; text-decoration: none;
+      border-radius: 4px; font-weight: 600; font-size: 16px;
+    }
+    .controls a.sec { background: #222; }
+    .slide-wrap {
+      width: 100%; padding: 20px 0;
+      border-bottom: 2px solid #1a1a1a;
+    }
+    .slide-label {
+      color: #CC0000; font-size: 14px; font-weight: 700;
+      letter-spacing: 2px; text-align: center; padding: 8px 0;
+      text-transform: uppercase;
+    }
+    iframe {
+      display: block; margin: 0 auto;
+      width: 960px; height: 540px;
+      border: 1px solid #2a2a2a; border-radius: 4px;
+      background: #0A0A0A;
+    }
+  </style>
+</head>
+<body>
+  <h1><span>AATS</span> Quality Gateway — AI for Surgeons 2026</h1>
+  <div class="controls">
+    <a href="index.html">▶ Full 15-min Playback</a>
+    <a href="video/index.html" class="sec">HyperFrames Source</a>
+  </div>
+
+  <div class="slide-wrap">
+    <div class="slide-label">Full Presentation (15 min autoplay)</div>
+    <iframe src="index.html" scrolling="no"></iframe>
+  </div>
+</body>
+</html>
