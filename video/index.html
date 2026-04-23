@@ -491,7 +491,7 @@
 
     <script>
       window.__timelines = window.__timelines || {};
-      const tl = gsap.timeline({ paused: true });
+      const tl = gsap.timeline({ paused: false });
 
       // Helper: fade a slide in at its start time, fade out at end
       function addSlide(id, start, dur) {
@@ -588,6 +588,7 @@
       tl.from('#s19-sub', { opacity: 0, duration: 0.6 }, 393.5);
 
       window.__timelines["main"] = tl;
+      tl.play();
     </script>
   </body>
 </html>
