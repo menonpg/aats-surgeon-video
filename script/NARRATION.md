@@ -1,157 +1,174 @@
 # Full Narration Script
 # AI for Surgeons: A Practical Toolkit
-# AATS Annual Meeting 2026 | 15 Minutes | 1 Speaker
+# AATS Annual Meeting 2026 | 15 Minutes | Prahlad Menon
+# ~2,250 words @ 150 wpm
 
 ---
 
-## [SECTION 1 — INTRO & AI LANDSCAPE] ~2 min
+## [SECTION 1 — HOOK] ~1 min / ~150 words
 
-Something fundamental shifted in AI in the last 18 months.
+Something fundamental shifted in AI over the last 18 months.
 
 Not incrementally. Fundamentally.
 
-The models that were impressive novelties in 2023 are now capable of writing grant applications, interpreting CT scans, simplifying radiology reports, generating full research presentations from an abstract, and having a fluent clinical conversation with a patient about goals of care.
+The models that were impressive novelties in 2023 are now capable of writing your grant applications, interpreting CT scans, simplifying radiology reports, generating a full research presentation from a single abstract, and having a fluent clinical conversation with a patient about goals of care — without a human in the loop.
 
 And the pace isn't slowing down.
 
-Right now, in 2026, every major frontier AI model — Claude Opus 4.6, ChatGPT 5.2, Gemini 3.1, Grok 4.20 — is genuinely good. Not good for a computer. Good. The question is no longer "can AI do this?" The question is: "are *you* using it?"
+In cardiothoracic surgery specifically, the tools available to you right now can eliminate 20 to 40 percent of documentation time, accelerate literature review by an order of magnitude, and augment imaging interpretation in ways that were science fiction three years ago.
 
-This session is about practical tools. Things you can use today, in your clinic, your OR, your research workflow — not hypothetical future systems.
-
-We're going to cover five domains: interacting with AI models, literature search, clinical documentation and research productivity, medical imaging, and finally a category that I think will genuinely surprise you — voice AI and conversational clinical tools.
+This session is not about what AI might do someday. It's about what you can use on Monday morning.
 
 Let's go.
 
 ---
 
-## [SECTION 2 — LLMs: COMPARING FRONTIER MODELS] ~2.5 min
+## [SECTION 2 — AI LANDSCAPE & LLMs] ~2 min / ~300 words
 
-The most important skill in using AI is knowing how to talk to it.
+There are four frontier AI models you need to know right now.
 
-There are four frontier models you need to know right now.
+**Claude Opus 4.6** from Anthropic leads on complex reasoning and has a one-million token context window — meaning you can feed it an entire textbook, or a year of operative reports, in a single prompt.
 
-**Claude Opus 4.6** from Anthropic leads on complex reasoning and has a one-million token context window — meaning you can feed it an entire book, or a year of patient records, in a single prompt.
+**ChatGPT 5.2** from OpenAI remains the best for structured writing — manuscripts, grant narratives, letters of recommendation.
 
-**ChatGPT 5.2** from OpenAI is still the best for structured writing — manuscripts, grant narratives, clinical letters.
+**Gemini 3.1 Pro** from Google is multimodal, connected to live search, and can interpret images alongside text. You can show it a CT scan and ask clinical questions.
 
-**Gemini 3.1 Pro** from Google is multimodal and connected to live search. You can show it an image and ask clinical questions.
+**Grok 4.20** from xAI is fast, direct, and particularly useful for technical tasks and uncensored reasoning.
 
-**Grok 4.20** from xAI is fast, direct, and useful for technical tasks.
+Here's the critical insight: all four are now excellent. The difference between a mediocre AI result and a genuinely useful one comes almost entirely from *how you prompt it*.
 
-Here's the key insight: all four are now excellent. The difference in your results comes almost entirely from *how you prompt them*.
+A vague prompt gets a vague answer. A structured prompt — with role, context, specific task, format, and constraints — gets something dramatically better.
 
-A vague prompt gets a vague answer. A structured prompt — with role, context, specific task, format, and constraints — gets a dramatically better one.
+Instead of: *"write a patient letter about my findings"* —
 
-For example: instead of "write a patient letter about my findings," you say: "You are a thoracic surgeon. Write a one-page letter to a 67-year-old patient explaining that their CT scan shows a 1.2cm right lower lobe nodule requiring 3-month follow-up imaging. Use plain language at a 7th grade reading level. Include: what was found, why follow-up is needed, and what to do next."
+Try: *"You are a thoracic surgeon. Write a one-page letter to a 67-year-old patient explaining that their CT scan shows a 1.2cm right lower lobe nodule requiring 3-month follow-up. Use plain language, 7th grade reading level. Include: what was found, why follow-up is needed, what to expect next."*
 
 That's the difference between generic text and something you'd actually send.
 
-We'll demo this live in the session — same surgical prompt, four models, side by side.
+We'll demonstrate this live during the session — the same surgical prompt, four models, side by side, so you can see the differences directly.
 
 ---
 
-## [SECTION 3 — AI LITERATURE SEARCH] ~1.5 min
+## [SECTION 3 — LITERATURE SEARCH] ~1.5 min / ~225 words
 
-If you're still doing literature searches the traditional way — PubMed keyword searches, manual abstract screening — you're leaving a significant productivity advantage on the table.
+If you're still doing literature searches the traditional way — PubMed keyword queries, manual abstract screening — you're leaving a significant productivity advantage on the table.
 
-Three tools have changed this permanently.
+**Open Evidence** answers clinical questions grounded in peer-reviewed literature with clickable citations. Ask it: *"What is the current evidence on ECMO as a bridge to transplant in adults?"* — you get a synthesized answer with sources, not a list of 200 papers to skim.
 
-**Open Evidence** answers clinical questions grounded in peer-reviewed literature with clickable citations. Ask it: "What's the current evidence on ECMO as a bridge to transplant in adults?" — and you get a synthesized answer, not a list of 200 papers to skim.
+**Consensus** and **Elicit** do similar things for systematic review acceleration — surfacing the most relevant evidence automatically, clustering themes, and flagging contradictions.
 
-**Consensus** and **Elicit** do similar things for systematic review acceleration — taking a research question and surfacing the most relevant evidence automatically.
+The clinical impact is now quantified. A Lancet meta-analysis published this year — 38 studies, 13,000 reports, 508 evaluators — showed LLMs improve patient-perceived understanding of radiology reports by 87 percent. Reading level drops from university-grade to 7th grade. Clinician accuracy ratings: 4.45 out of 5.
 
-A Lancet meta-analysis published this year quantified something we've been seeing anecdotally: LLMs simplify radiology reports by 87% in patient-perceived understanding. Reading level drops from university-grade to 7th grade. Clinician accuracy ratings: 4.45 out of 5. That's not a pilot study — it's 38 studies, 13,000 reports, 508 evaluators.
-
-The caveat is real: about 1% of AI-simplified reports contain clinically significant errors. At scale — thousands of reports per month per department — that's dozens of potentially harmful miscommunications. So human review isn't optional. But the productivity gain is undeniable.
+The caveat is real: approximately 1 percent of AI-simplified reports contain clinically significant errors. At volume — thousands of reports per month per department — that's dozens of potentially harmful miscommunications. Human review isn't optional. But the productivity gain is undeniable, and the trajectory is clear.
 
 ---
 
-## [SECTION 4 — AI FOR THE PRACTICING SURGEON] ~2 min
+## [SECTION 4 — SURGEON WORKFLOWS] ~2 min / ~300 words
 
-Dr. Ghanta is going to walk through his own workflow in detail. Let me give you the technical layer underneath it.
+Dr. Ghanta will walk through his personal workflow in detail. Let me give you the technical layer underneath it.
 
-**AI scribes** — tools like Ambient Clinical Intelligence from Nuance or Nabla — listen to your patient encounter and generate a structured clinical note. Studies show 20 to 40 percent reduction in documentation time. Some surgeons report leaving clinic on time for the first time in years.
+**AI scribes** — tools like Ambient Clinical Intelligence from Nuance or Nabla — listen to your patient encounter and produce a structured clinical note. The published evidence shows 20 to 40 percent reduction in documentation time. Some surgeons report leaving clinic on time for the first time in years.
 
-Beyond notes: you can paste an operative report into Claude and ask it to generate the correct procedure codes. You can ask it to draft a letter of recommendation given a few bullet points about the resident. You can generate a grant narrative outline from your specific aims page.
+Beyond notes: paste an operative report into Claude, ask for the correct procedure codes. Give it five bullet points about a resident, ask for a letter of recommendation. Upload your specific aims, ask for a grant narrative outline.
 
-A paper published this year in Nature npj Digital Medicine showed vision-enabled AI scribes — Gemini combined with Ray-Ban Meta glasses — can document medication histories *during* patient encounters by reading labels in real time. This is where the technology is heading: ambient, invisible, continuous documentation.
+A paper published this year in Nature npj Digital Medicine showed vision-enabled AI scribes — Gemini combined with Ray-Ban Meta glasses — can document medication histories during patient encounters by reading labels in real time. That's where documentation is heading: ambient, continuous, invisible.
 
-On the research side: you can upload a spreadsheet of patient outcomes and ask ChatGPT Data Analyst to generate survival curves and publication-ready figures — no R, no Python, no biostatistician required.
+For research: upload a CSV of patient outcomes to ChatGPT Data Analyst and ask for survival curves, multivariate regression, subgroup analysis, and publication-ready figures. No R. No Python. No biostatistician required for early-stage analysis.
 
-For presentations: **Kimi** generates a full conference deck from an abstract in roughly 60 seconds. Complete with charts, citations, and speaker notes.
+For presentations: **Kimi** generates a full conference deck from an abstract in roughly 60 seconds — charts, citations, speaker notes. Upload your abstract and figures, describe your audience, receive a complete deck.
 
-These aren't future capabilities. They're available today with a free or low-cost subscription.
-
----
-
-## [SECTION 5 — RAG AND YOUR OWN KNOWLEDGE BASE] ~2 min
-
-This is the one that most clinicians haven't heard about yet, and it may be the most powerful capability on this list.
-
-**RAG — Retrieval-Augmented Generation** — lets you build a searchable knowledge base from *your own* documents. Operative reports. Research papers. Clinical guidelines. Your institution's protocols. And then ask it natural language questions that are answered from *your* data — not from the open internet.
-
-The architecture is straightforward: your documents are converted into mathematical representations called embeddings, stored in a vector database, and retrieved at query time. The AI answers your question grounded in what you actually gave it.
-
-In 2026, RAG has evolved significantly. **GraphRAG** builds knowledge graphs for complex relational data — useful when you need to understand connections between findings, medications, and outcomes. **Agentic RAG** uses autonomous agents to search and reason. **Multimodal RAG** handles images alongside text.
-
-And there's a newer approach called **Recursive Language Models — or RLMs** — that solves a persistent problem in RAG called "context rot." As you load more documents into a prompt, AI performance degrades. RLMs solve this by recursively processing large document sets, effectively enabling AI reasoning over datasets too large for any single context window. For a surgical team with years of operative records and a large research corpus, this is significant.
-
-We'll demo a live RAG system during the session — a real cardiothoracic surgery paper corpus, searchable by natural language.
+And just to put a number on the personalized medicine frontier: a 17-year machine learning engineer named Paul Conyngham sequenced his rescue dog's tumor DNA, used AlphaFold and a custom ML pipeline, and produced a personalized mRNA cancer vaccine for $3,000. The tumor shrank 75 percent in a month. The same pipeline — AlphaFold, OpenAI, open-source bioinformatics — is available to anyone with a university computing account and a credit card.
 
 ---
 
-## [SECTION 6 — MEDICAL IMAGING AI] ~2 min
+## [SECTION 5 — RAG AND YOUR OWN KNOWLEDGE BASE] ~2 min / ~300 words
 
-This is where the biology meets the computation in the most visible way.
+This is the capability that most clinicians haven't encountered yet, and it may be the most powerful one on this list.
 
-**Medical SAM 2** — based on Meta's Segment Anything Model — treats a 3D CT or MRI scan like a video. Segment one slice, and the model propagates that segmentation through the entire volume automatically. Consistent 3D annotation without slice-by-slice manual work. Practical for surgical planning, teaching cases, and rapid second opinions.
+**RAG — Retrieval-Augmented Generation** — lets you build a searchable knowledge base from *your own* documents: operative reports, research papers, institutional protocols, clinical guidelines. And then ask natural-language questions that are answered from *your* data — not from the open internet, not from hallucinated training memory.
 
-**BrainIAC**, published in Nature Neuroscience this February, went further. A foundation model trained on 49,000 brain MRIs — with *no labels at all*. Self-supervised learning. It outperforms supervised models on tumor segmentation, stroke prediction, and brain age estimation, especially in low-data settings. The bottleneck in medical AI has always been annotation. BrainIAC shows the bottleneck is breakable.
+The architecture: your documents are converted into mathematical representations called embeddings, stored in a vector database, retrieved at query time, and injected as context into the AI's response. The answer is grounded in what you actually gave it.
 
-And just published this week — **APOLLO**: a multimodal temporal foundation model trained on 25 billion clinical events from 7.2 million patients across 33 years of longitudinal hospital records and 28 data modalities. Labs, notes, pathology images, medications, diagnoses — all unified into a single representation. What APOLLO produces is what the authors call a "virtual patient" — a computable embedding that captures not just the current clinical state, but the full trajectory of how that patient got there.
+In 2026, RAG has evolved considerably. **GraphRAG** builds knowledge graphs for complex relational data — useful when connections between findings, medications, and outcomes matter. **Agentic RAG** uses autonomous agents to search and reason across sources. **Multimodal RAG** handles images alongside text.
 
-The implications for risk prediction, treatment response modeling, and clinical trial matching are substantial. This is the foundation model moment that healthcare has been waiting for.
+And a newer approach called **Recursive Language Models — RLMs** — solves a persistent problem called context rot: as you load more documents into a prompt, AI performance degrades. RLMs process large document sets recursively, enabling reasoning over datasets too large for any single context window. For a surgical team with years of operative records and a large research corpus, this is significant.
 
----
-
-## [SECTION 7 — DATA ANALYSIS & PRESENTATIONS] ~1 min
-
-Two tools that deserve explicit mention because they remove traditional barriers.
-
-For data: paste a CSV of patient outcomes into ChatGPT Data Analyst or Claude. Ask for Kaplan-Meier curves, multivariate regression, subgroup analysis. Get publication-ready figures. No statistical software license, no programming background required. For early-stage analysis and hypothesis generation, this is transformative.
-
-For presentations: beyond Kimi, **Gamma** and **Beautiful.ai** generate structured visual presentations from your content. The workflow is: upload your abstract and key figures, describe your audience, get a complete slide deck. For a conference presentation under time pressure, this is a genuine time saver.
-
-**Image generation** for surgical education is also maturing fast. Tools like Gemini 3.1 Flash Image — which went viral under the name Nano Banana 2 — generate anatomical illustrations, surgical diagrams, and educational infographics from text descriptions. Perfect for teaching materials and conference posters.
+In the session, we'll demonstrate a live RAG system built on a real cardiothoracic surgery paper corpus. You'll be able to ask it clinical questions and see exactly how retrieval and generation work together.
 
 ---
 
-## [SECTION 8 — VOICE AGENTS & CONVERSATIONAL CLINICAL TOOLS] ~1.5 min
+## [SECTION 6 — MEDICAL IMAGING AI] ~1.5 min / ~225 words
 
-I want to close with a category that connects everything we've discussed — and represents where clinical AI is actually going.
+**Medical SAM 2** — based on Meta's Segment Anything Model — treats a 3D CT or MRI scan as a video sequence. Segment one slice, and the model propagates that segmentation automatically through the entire volume. Consistent 3D annotation without slice-by-slice manual work. Directly applicable to surgical planning, teaching cases, and rapid second opinions.
 
-Voice AI agents.
+**BrainIAC**, published in Nature Neuroscience this February, pushed further. A foundation model trained on 49,000 brain MRIs — with no labels at all. Self-supervised learning. It outperforms supervised models on tumor segmentation, stroke prediction, and brain age estimation, particularly in low-data settings. The annotation bottleneck that has constrained medical AI is breakable.
 
-I've spent the last year building voice-based clinical tools using open-source frameworks — specifically LiveKit, which provides the real-time communication layer — combined with large language models, speech recognition, and the RAG and RLM architectures we just discussed.
+And published this week: **APOLLO** — a multimodal temporal foundation model trained on 25 billion clinical events from 7.2 million patients, across 33 years of longitudinal hospital records and 28 data modalities. Labs, clinical notes, pathology images, medications, diagnoses — all unified into a single representation. What APOLLO produces is what the authors call a virtual patient: a computable embedding that captures not just the current clinical state, but the full trajectory of how that patient got there.
 
-What this looks like in practice: a patient can have a spoken conversation with an AI agent that has access to clinical guidelines, remembers the context of previous sessions, and adapts its responses based on what it's learned across conversations. The agent is persistent — it doesn't forget between sessions. It has what we call a memory architecture: structured recall of clinical facts layered with semantic search across the full history.
+The implications for risk prediction, treatment response modeling, and clinical trial matching are substantial. This is the foundation model moment that medicine has been waiting for.
 
-We built this for goals-of-care conversations — patients with serious illness, discussing their preferences for end-of-life care. The AI agent — we call her Grace — can explain what a DNR means, what POLST forms are, what palliative care involves, and adapt those explanations to a 45-year-old pilot's concerns versus a 78-year-old patient's entirely different set of questions.
+---
 
-Closer to home — for this audience — we built a conversational risk assessment system for cardiac surgery. The AATS AQG calculator you may know as a web form. We rebuilt it as a natural language interface. A clinician describes a patient: "65-year-old male, CABG, history of diabetes, transfer with prolonged pre-op stay." The AI extracts the variables, makes reasonable assumptions for missing data, and returns risk predictions for operative mortality, stroke, renal failure, and six other endpoints — instantly, conversationally, with what-if scenario comparison. No form filling.
+## [SECTION 7 — DATA ANALYSIS] ~1 min / ~150 words
+
+Two specific capabilities that remove the traditional barriers to quantitative research.
+
+For data analysis: paste a CSV of patient outcomes into ChatGPT Data Analyst or Claude. Ask for Kaplan-Meier survival curves, multivariate logistic regression, subgroup comparisons, and publication-ready figures. You get working statistical analysis — no statistical software license, no programming background required. For hypothesis generation and early-stage analysis, this is genuinely transformative.
+
+For presentations: **Gamma** and **Beautiful.ai** generate structured visual decks from your content in minutes. And **Kimi** — the current best-in-class tool for slide generation — creates complete conference presentations from a single abstract. Upload your key figures, describe your audience, receive a full deck with surgical diagrams and speaker notes in roughly 60 seconds.
+
+These are not future capabilities. They work today with a free or low-cost subscription.
+
+---
+
+## [SECTION 8 — IMAGE AND VIDEO GENERATION] ~1 min / ~150 words
+
+For surgical education materials, conference posters, and teaching illustrations — **Gemini 3.1 Flash Image**, which went viral under the name Nano Banana 2, generates high-quality anatomical diagrams, surgical illustrations, and infographics from text descriptions. It supports subject consistency across multiple frames and produces 4K resolution outputs.
+
+Describe the anatomy you need illustrated. Describe the procedure schematic. Get a professional-quality image in seconds, without a medical illustrator.
+
+On the video side: tools like **HyperFrames** let an AI coding agent write and render HTML-based video compositions directly to MP4. **ArcReel** takes a story or script and produces a complete short video with consistent characters and scene assembly. **NotebookLM's Cinematic Video Overviews** — now in Google AI Ultra — can take any document and produce a narrated video with fluid animations in under an hour.
+
+The barriers between "I have an idea" and "I have a video" are collapsing.
+
+---
+
+## [SECTION 9 — VOICE AGENTS, soul.py, GRACE, AND AATS AQG] ~2 min / ~300 words
+
+I want to close with something I've been building directly — because it connects everything we've discussed, and it represents where clinical AI is actually going.
+
+The foundation is a real-time voice communication framework called **LiveKit** — open-source, production-grade, used in clinical applications. On top of it, you layer speech recognition, a large language model, and the RAG and RLM retrieval architectures we discussed earlier.
+
+The memory problem in clinical AI — how does an AI agent remember what a patient said in the last session, across sessions, over months — is solved by a memory architecture we published on PyPI as **soul.py**. The system uses two layers: a structured identity file containing persistent clinical facts, and a semantic retrieval layer that searches across the full conversation history. The AI doesn't forget between sessions. It knows what was said last time, and it adapts.
+
+What this looks like in practice: an AI agent conducting goals-of-care conversations with patients with serious illness. The agent can explain what a DNR means, what POLST forms are, what palliative care involves — in plain language, adapted to the specific patient's concerns, with memory of everything discussed in prior sessions. A pilot who asks about what happens if he can't fly again gets a different conversation than a 78-year-old asking about nursing home care.
+
+And for this audience specifically: we rebuilt the AATS Quality Gateway risk calculator as a conversational AI system called **AskAQG**. A clinician describes a patient in natural language — "65-year-old male, CABG, history of diabetes, transfer with prolonged pre-operative stay" — and the system extracts variables, makes reasonable assumptions for missing data, and returns risk predictions for operative mortality, stroke, renal failure, prolonged length of stay, and four other endpoints. Instantly. Conversationally. With what-if scenario comparison.
 
 The combination of voice, persistent memory, and clinical knowledge bases is producing tools that feel qualitatively different from anything that existed three years ago.
 
 ---
 
-## [SECTION 9 — WHAT'S NEXT] ~0.5 min
+## [SECTION 10 — WHAT TO DO MONDAY] ~1 min / ~150 words
 
-We're 90 minutes together this morning. Bring your laptop. Try the tools live. Ask questions about your specific problems — clinical, research, administrative, educational.
+Here's the practical takeaway.
 
-The AI landscape in 2026 has crossed a threshold. These tools are no longer speculative. They work. The question is whether you'll be the surgeon who uses them, or the surgeon who watches while everyone else does.
+You don't need to become an AI engineer. You need five things:
 
-I'm looking forward to the conversation.
+**One**: A Claude or ChatGPT Pro subscription. Fifteen to twenty dollars a month. Start there.
+
+**Two**: A structured prompting template for your most common tasks — patient letters, operative notes, literature questions. Spend 30 minutes this weekend writing them. You'll use them for years.
+
+**Three**: Open Evidence bookmarked. Use it for your next clinical question instead of PubMed. See the difference.
+
+**Four**: One dataset — anything you've been meaning to analyze. Upload it to ChatGPT Data Analyst this week.
+
+**Five**: Come back to the resources at learn.aatsqualitygateway.org. The RAG demo, the playgrounds, the deep-dives are all there and accessible with the pre-configured API keys we've set up for this session.
+
+The tools are ready. The question is whether you are.
 
 ---
 
-*Total estimated narration time: ~14.5 minutes at comfortable speaking pace*
+*Total: ~2,250 words | ~15 minutes @ 150 wpm*
+*Speaker: Prahlad Menon*
+*AATS Annual Meeting 2026 | Chicago | May 2, 7:30–9:00 AM*

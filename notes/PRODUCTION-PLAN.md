@@ -1,116 +1,168 @@
 # Slide-by-Slide Production Plan
 # Visual + Narration mapping for HyperFrames / HTML→MP4 pipeline
+# AATS Branding: Black bg / AATS Red #CC0000 / White text
 
 ---
 
-## SLIDE 1 — Title Card
-**Visual:** Dark background, animated text reveal
-**Text:** "AI for Surgeons: A Practical Toolkit"
-**Subtext:** "AATS Annual Meeting 2026 | May 2, 2026 | Chicago"
-**Duration:** 6s
+## BRANDING TOKENS
+```
+bg:        #0A0A0A (near-black)
+accent:    #CC0000 (AATS red)
+text:      #FFFFFF
+subtext:   #AAAAAA
+font:      Inter, system-ui
+logo:      AATS Quality Gateway wordmark + icon
+```
 
-## SLIDE 2 — The Shift
-**Visual:** Timeline 2023→2026, key milestones appearing
-**Narration:** "Something fundamental shifted..."
-**Duration:** 20s
+---
 
-## SLIDE 3 — The Four Frontier Models
-**Visual:** 4-quadrant grid: Claude / ChatGPT / Gemini / Grok with logos and 1-line description each
-**Key stat:** "All frontier models are now very good — the difference is in how you use them."
-**Duration:** 30s
+## SLIDE 1 — Title Card [6s]
+- AATS logo top-left
+- Center: "AI for Surgeons: A Practical Toolkit"
+- Sub: "AATS Annual Meeting 2026 | May 2, Chicago"
+- Animated red underline reveal
 
-## SLIDE 4 — Prompt Engineering (Before/After)
-**Visual:** Split screen — vague prompt vs structured prompt → output quality comparison
-**Source:** LLM Playground at learn.aatsqualitygateway.org/ai-playground/lesson5
-**Duration:** 25s
+## SLIDE 2 — The Shift [20s]
+- Timeline 2023 → 2024 → 2025 → 2026
+- Each year: key AI milestone pops in
+- End frame: "Not incremental. Fundamental."
+- Red accent border left
 
-## SLIDE 5 — AI Literature Search
-**Visual:** Screenshot of Open Evidence answering a clinical question
-**Stat overlay:** "87% improvement in patient understanding — Lancet meta-analysis, 38 studies"
-**Duration:** 20s
+## SLIDE 3 — The Four Frontier Models [30s]
+- 4-quadrant dark grid
+- Claude / ChatGPT / Gemini / Grok — logo + 1-liner each
+- Red highlight: "All now excellent. The difference is how you use them."
+- Source: learn.aatsqualitygateway.org/ai-playground/lesson5
 
-## SLIDE 6 — AI Scribes & Documentation
-**Visual:** Side-by-side: surgeon in clinic → structured note generated
-**Stat:** "20–40% reduction in documentation time"
-**Quote:** "Vision-enabled scribes (Gemini + Ray-Ban) — npj Digital Medicine 2026"
-**Duration:** 25s
+## SLIDE 4 — Prompting: Before / After [25s]
+- Split screen
+- Left (grey, dim): vague prompt → mediocre output
+- Right (white, bright): structured prompt → surgical letter
+- AATS red arrow separating them
 
-## SLIDE 7 — RAG Architecture
-**Visual:** Animated diagram: Documents → Embeddings → Vector DB → Query → Answer
-**Labels:** RAG / GraphRAG / Agentic RAG / RLM
-**Source:** blog.themenonlab.com/blog/rag-plus-rlm-complete-knowledge-base-architecture
-**Duration:** 30s
+## SLIDE 5 — Literature Search [20s]
+- Screenshot: Open Evidence answering "ECMO bridge to transplant"
+- Stat overlay (red badge): "87% improvement in patient understanding"
+- Sub: "Lancet meta-analysis 2026 | 38 studies | 13,000 reports"
 
-## SLIDE 8 — Medical SAM 2
-**Visual:** CT scan slice → 3D segmentation propagation animation
-**Caption:** "Segment one slice. Get consistent 3D annotation automatically."
-**Source:** blog.themenonlab.com/blog/medical-sam2-3d-medical-image-segmentation
-**Duration:** 20s
+## SLIDE 6 — AI Scribes & Documentation [25s]
+- Split: surgeon in clinic (left) → structured note (right)
+- Stat: "20–40% reduction in documentation time"
+- Bottom ticker: "Nature npj Digital Medicine 2026 — vision-enabled scribes"
 
-## SLIDE 9 — BrainIAC
-**Visual:** Brain MRI → model output (tumor segmentation, age prediction)
-**Stat:** "49K unlabeled MRIs. No annotations. Nature Neuroscience, Feb 2026."
-**Duration:** 18s
+## SLIDE 7 — Surgeon Research Workflows [20s]
+- 4 icons in row: CSV → Chart | Abstract → Slides | Bullets → Grant | Notes → Codes
+- Tool names: ChatGPT Data Analyst | Kimi | Claude Opus 4.6
+- AATS red section header: "Research & Documentation"
 
-## SLIDE 10 — APOLLO
-**Visual:** Infographic: 25B events / 7.2M patients / 28 modalities / 33 years
-**Quote:** "A virtual patient — not just what is happening, but how they got there."
-**Source:** blog.themenonlab.com/blog/apollo-multimodal-temporal-foundation-model-healthcare
-**Duration:** 25s
+## SLIDE 8 — Rosie: Personalized Medicine [18s]
+- Stat card: "$3,000. AlphaFold. mRNA vaccine. Tumor ↓75%."
+- Caption: "The same pipeline is available to anyone with a university computing account."
 
-## SLIDE 11 — Data & Presentations
-**Visual:** CSV → Kaplan-Meier curve (ChatGPT Data Analyst)
-         + Abstract → Slide deck (Kimi)
-**Duration:** 20s
+## SLIDE 9 — RAG Architecture [30s]
+- Animated flow (left to right):
+  Documents → [Embeddings] → Vector DB → Query → [LLM] → Answer
+- Labels: RAG | GraphRAG | Agentic RAG | RLM
+- Red highlight: "Your data. Not the internet."
+- Source: blog.themenonlab.com/blog/rag-plus-rlm-complete-knowledge-base-architecture
 
-## SLIDE 12 — Voice Agents: Architecture
-**Visual:** Diagram: LiveKit → STT → LLM → RAG/RLM → TTS → Patient
-**Caption:** "Real-time voice, persistent memory, clinical knowledge base"
-**Duration:** 25s
+## SLIDE 10 — Medical SAM 2 [20s]
+- CT scan slice → segmentation propagation animation (3D volume)
+- Caption: "Segment one slice. Model propagates through the entire volume."
+- Red badge: "Meta SAM 2 adapted for medical imaging"
 
-## SLIDE 13 — Goals of Care Voice Agent (Generic)
-**Visual:** Audio waveform + conversation transcript excerpt
-**Caption:** "An AI agent that explains DNR, POLST, advance directives — and remembers."
-**Note:** No institution names
-**Duration:** 25s
+## SLIDE 11 — BrainIAC [18s]
+- Brain MRI → model outputs (tumor, stroke, age)
+- Stat: "49K unlabeled MRIs. Zero annotations."
+- Red badge: "Nature Neuroscience | Feb 2026"
 
-## SLIDE 14 — AATS AQG Conversational Risk Calculator
-**Visual:** Screenshot of AskAQG conversation + risk table
-**Source:** themenonlab.com/quantmd/aats
-**Caption:** "65yo male, CABG, diabetes → 0.16% operative mortality — from natural language"
-**Duration:** 25s
+## SLIDE 12 — APOLLO [25s]
+- Infographic: 4 large numbers
+  25B events | 7.2M patients | 28 modalities | 33 years
+- Quote: "A virtual patient — not just what is happening, but how they got there."
+- Red badge: "arXiv 2026 | Faisal Mahmood Lab"
+- Source: blog.themenonlab.com/blog/apollo-multimodal-temporal-foundation-model-healthcare
 
-## SLIDE 15 — Call to Action
-**Visual:** Workshop URL + QR code
-         "learn.aatsqualitygateway.org"
-**Text:** "Bring your laptop. Try the tools live. Bring your hardest problem."
-**Duration:** 15s
+## SLIDE 13 — Image & Video Generation [20s]
+- Left: text prompt → surgical diagram (Nano Banana 2)
+- Right: abstract → slide deck (Kimi, 60 seconds)
+- Caption: "From idea to visual in seconds."
+
+## SLIDE 14 — Voice Agent Architecture [25s]
+- Animated diagram:
+  🎤 Mic → STT → [LLM + RAG/RLM] → TTS → 🔊 Patient
+- Labels: LiveKit | Deepgram | Azure OpenAI | Qdrant | Azure TTS
+- Caption: "Real-time voice. Persistent memory. Clinical knowledge base."
+
+## SLIDE 15 — Grace: Goals of Care Voice Agent [25s]
+- Audio waveform animation
+- Transcript excerpt (generic, no institution):
+  Patient: "What happens if I can't breathe on my own?"
+  Grace: "That's an important question. Let me explain what a ventilator is..."
+- Caption: "Adapts to each patient. Remembers every session."
+- Red badge: "soul.py — persistent AI memory | pip install soul-agent"
+
+## SLIDE 16 — AATS AQG: Conversational Risk Assessment [25s]
+- Screenshot: AskAQG conversation + risk prediction table
+- Highlight row: "Operative Mortality: 0.16%"
+- Caption: "From natural language to 8 surgical risk predictions — no form filling."
+- Source: themenonlab.com/quantmd/aats
+- Button: riskcalculator.aatsqualitygateway.org
+
+## SLIDE 17 — LITE Calculator [20s]
+- Screenshot: LITE interface (37 fields auto-populated, AI chat panel)
+- Caption: "Paste clinical notes. Voice input. AI extracts all 37 variables."
+- Red badge: "Thoracic Surgery | Lung + Esophageal"
+
+## SLIDE 18 — What To Do Monday [20s]
+- 5-point checklist (checkboxes animate in, AATS red)
+  ✓ Claude / ChatGPT Pro ($20/mo)
+  ✓ Write 3 prompt templates this weekend
+  ✓ Bookmark Open Evidence
+  ✓ Upload one dataset to ChatGPT Data Analyst
+  ✓ learn.aatsqualitygateway.org — playgrounds + demos
+
+## SLIDE 19 — CTA / Resources [15s]
+- AATS logo centered
+- URL: learn.aatsqualitygateway.org
+- QR code (right side)
+- "Bring your laptop. Bring your hardest problem."
+- Red footer: "AATS Annual Meeting 2026 | AI for Surgeons Workshop"
 
 ---
 
 ## Production Notes
 
-**Tool:** HyperFrames (HeyGen) — HTML compositions → MP4
-- Install: `npx hyperframes init aats-video`
-- Agent: Claude Code with `/hyperframes` skill
-- Render: `npx hyperframes render`
+### HyperFrames Setup
+```bash
+npx hyperframes init aats-surgeon-video
+cd aats-surgeon-video
+npx skills add heygen-com/hyperframes   # adds /hyperframes Claude Code skill
+npx hyperframes preview                 # live preview in browser
+npx hyperframes render                  # → MP4
+```
 
-**Voice:** Azure TTS or ElevenLabs
-- Voice: pre-built male (professional/warm)
-- Script: script/NARRATION.md
-- Generate per-section MP3s, sync with slide timing
+### Azure TTS Voice
+```python
+# Voice: en-US-AndrewMultilingualNeural (professional male)
+# Rate: -5% (slightly slower, clinical/authoritative)
+# Script: script/NARRATION.md — split by [SECTION] markers
+```
 
-**Screenshots needed:**
-- [ ] learn.aatsqualitygateway.org/surgeon-program
-- [ ] Open Evidence answering a cardiothoracic question
-- [ ] AskAQG conversation (from Google Drive demo or themenonlab.com/quantmd/aats)
+### Screenshots needed
+- [ ] learn.aatsqualitygateway.org/surgeon-program — hero
+- [ ] Open Evidence — cardiothoracic clinical question
+- [ ] Consensus or Elicit UI
+- [ ] AskAQG conversation + risk table (themenonlab.com/quantmd/aats)
 - [ ] LITE Calculator interface
 - [ ] Medical SAM 2 segmentation example
-- [ ] RAG demo from learn.aatsqualitygateway.org/rag-demo
-- [ ] Kimi slide generation
+- [ ] learn.aatsqualitygateway.org/rag-demo
+- [ ] Kimi slide generation from abstract
+- [ ] ChatGPT Data Analyst with surgical CSV
 
-**Diagrams to generate (Gemini Flash Image / Nano Banana 2):**
+### Diagrams to generate (Nano Banana 2 / Gemini Flash Image)
 - [ ] RAG+RLM architecture flow
-- [ ] APOLLO multimodal timeline
+- [ ] APOLLO 4-number infographic
 - [ ] Voice agent architecture
-- [ ] Frontier LLM comparison grid
+- [ ] Frontier LLM 4-quadrant grid (Claude/GPT/Gemini/Grok)
+- [ ] soul.py memory architecture
