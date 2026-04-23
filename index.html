@@ -764,6 +764,160 @@
 </div>
 
 
+<!-- ═══════════════════════════════════════════════
+     S14 — FONTAN AI RECONSTRUCTION [407–437s]
+═══════════════════════════════════════════════ -->
+<div id="s14" class="slide" data-composition-id="s14-root" data-start="407" data-duration="30" data-width="1920" data-height="1080" data-track-index="2">
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:4px;">AATS Annual Meeting · Monday May 4, 2026 · 7:30AM · Congenital Rapid Fire Orals · Room E451A</div>
+    <h2 style="font-size:42px;font-weight:900;margin-bottom:4px;">Generative AI for 3D Vascular Reconstruction</h2>
+    <p style="font-size:18px;color:#8899BB;margin-bottom:20px;">RF48 · Fontan Geometries from 2D Contrast-Enhanced X-Ray Fluoroscopy · Prahlad Menon, PhD</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">THE CLINICAL PROBLEM</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;">Failing Fontan patients require precise 3D vascular geometry for pre-operative planning and computational fluid dynamics (CFD). Traditional 3D reconstruction requires dedicated CT/MRI — often unavailable at time of re-intervention.</div>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">THE AI PIPELINE</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;margin-bottom:12px;">
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;color:#C9A84C;font-weight:700;">2D Angiogram</span>
+            <span style="color:#C9A84C;font-size:18px;">&#8594;</span>
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;text-align:center;">Gemini Flash 2.5<br><span style="font-size:11px;color:#8899BB;">Vascular enhancement + segmentation</span></span>
+            <span style="color:#C9A84C;font-size:18px;">&#8594;</span>
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;text-align:center;">Hunyuan3D<br><span style="font-size:11px;color:#8899BB;">3D geometry synthesis</span></span>
+            <span style="color:#C9A84C;font-size:18px;">&#8594;</span>
+            <span style="background:#1B3A6B;padding:6px 10px;border-radius:6px;color:#44CC88;font-weight:700;text-align:center;">STL / OBJ / GLB<br><span style="font-size:11px;">CFD-ready mesh</span></span>
+          </div>
+          <a href="https://github.com/menonpg/fontan-ai-reconstruction" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#x1F517; github.com/menonpg/fontan-ai-reconstruction &#8594;</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">WHY THIS MATTERS</div>
+          <ul style="font-size:15px;color:#CCDDEE;line-height:1.9;padding-left:18px;margin:0;">
+            <li>Works with standard 2D fluoroscopy — <strong style="color:#F0F4FF;">no dedicated 3D imaging required</strong></li>
+            <li>Prompt-driven reconstruction — surgeon guides AI interactively</li>
+            <li>Output feeds directly into hemodynamic simulation (CFD) tools</li>
+            <li>Fully open-source — reproducible and extensible</li>
+          </ul>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">MODELS USED</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Gemini Flash 2.5</div><div style="color:#8899BB;font-size:13px;">Medical image preprocessing + segmentation</div></div>
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Hunyuan3D-2.0</div><div style="color:#8899BB;font-size:13px;">Image &#8594; 3D mesh generation (open-source)</div></div>
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Veo-3</div><div style="color:#8899BB;font-size:13px;">Video reconstruction visualization</div></div>
+            <div style="background:#0A1628;padding:10px;border-radius:6px;"><div style="color:#C9A84C;font-weight:700;">Open Source Stack</div><div style="color:#8899BB;font-size:13px;">Next.js · STL/OBJ/GLB export · CFD-ready</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     S15 — JTCVS AI VIDEO LIBRARY [437–467s]
+═══════════════════════════════════════════════ -->
+<div id="s15" class="slide" data-composition-id="s15-root" data-start="437" data-duration="30" data-width="1920" data-height="1080" data-track-index="2">
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:30px 60px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:4px;">AATS Annual Meeting · Monday May 4, 2026 · 2:35PM · JTCVS Forum: AI in Scholarly Publication · Room E353C</div>
+    <h2 style="font-size:42px;font-weight:900;margin-bottom:4px;">AI in Scholarly Publication: What Does the Future Look Like?</h2>
+    <p style="font-size:18px;color:#8899BB;margin-bottom:20px;">Prahlad Menon, PhD · JTCVS Forum · Opportunities and Pitfalls</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">JTCVS SURGICAL VIDEO LIBRARY</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">45+ surgical technique videos from JTCVS Open &amp; JTCVS Techniques. AI-powered semantic search across full video transcripts. Ask questions, get answers grounded in actual surgical content.</div>
+          <div style="font-size:13px;color:#8899BB;margin-bottom:10px;">RAG over transcripts · Azure OpenAI · Qdrant vector DB · PubMed integration</div>
+          <a href="https://video-library.jtcvs.org/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#x1F517; video-library.jtcvs.org &#8594;</a>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">JTCVS MANUSCRIPT FORMATTER</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;margin-bottom:12px;">AI-assisted tool that reformats submissions to JTCVS journal style: word limits, figure formatting, reference style, structured abstract.</div>
+          <a href="https://formatter.jtcvs.org/" target="_blank" style="display:inline-block;background:#0A1628;border:1px solid #C9A84C;color:#C9A84C;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">&#x1F517; formatter.jtcvs.org &#8594;</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:10px;">AI'S ROLE IN SCHOLARLY PUBLICATION</div>
+          <div style="font-size:15px;color:#CCDDEE;line-height:1.7;">AI is transforming every stage of the manuscript lifecycle — from literature discovery and drafting to peer review assistance, figure generation, and now video transcription and semantic indexing of surgical technique content.</div>
+        </div>
+        <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:8px;padding:20px;">
+          <div style="font-size:14px;font-weight:800;color:#C9A84C;margin-bottom:12px;">OPPORTUNITIES &amp; PITFALLS</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px;">
+            <div>
+              <div style="color:#44CC88;font-weight:700;margin-bottom:6px;">&#x2714; Opportunities</div>
+              <ul style="color:#CCDDEE;padding-left:16px;margin:0;line-height:1.9;">
+                <li>Faster literature review</li>
+                <li>Consistent formatting</li>
+                <li>Video content indexing</li>
+                <li>Global accessibility</li>
+              </ul>
+            </div>
+            <div>
+              <div style="color:#CC4444;font-weight:700;margin-bottom:6px;">&#x26A0; Pitfalls</div>
+              <ul style="color:#CCDDEE;padding-left:16px;margin:0;line-height:1.9;">
+                <li>Fabricated citations</li>
+                <li>Homogenized writing</li>
+                <li>Authorship integrity</li>
+                <li>Peer review gaming</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     S16 — ALL TALKS AT A GLANCE [467–482s]
+═══════════════════════════════════════════════ -->
+<div id="s16" class="slide" data-composition-id="s16-root" data-start="467" data-duration="15" data-width="1920" data-height="1080" data-track-index="2">
+  <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;display:flex;flex-direction:column;justify-content:center;">
+    <h2 style="font-size:46px;font-weight:900;margin-bottom:6px;">AATS Annual Meeting 2026 · Chicago</h2>
+    <p style="font-size:19px;color:#8899BB;margin-bottom:24px;">Prahlad Menon, PhD, PMP · AATS Quality Gateway</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Saturday, May 2 · AI for Surgeons: The Practical Toolkit · Room E353A</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">7:45 AM · Interacting with LLMs: Live Demo</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">8:15 AM · AI for the Practicing Surgeon and Researcher: Live Demo</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Monday, May 4</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">7:30 AM · RF48. Generative AI for 3D Vascular Reconstruction of Fontan Geometries</div>
+            <div style="font-size:13px;color:#8899BB;margin-top:2px;">Congenital Rapid Fire Orals · Room E451A</div>
+          </div>
+          <div style="background:#0F1E3A;border:1px solid #1E3254;border-left:4px solid #C9A84C;border-radius:6px;padding:12px 16px;">
+            <div style="font-size:15px;font-weight:700;">2:35 PM · What Does the Future Look Like?</div>
+            <div style="font-size:13px;color:#8899BB;margin-top:2px;">JTCVS Forum: AI in Scholarly Publication · Room E353C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px;text-align:center;font-size:15px;color:#556688;">
+      <a href="https://menonpg.github.io/aats-surgeon-video/" target="_blank" style="color:#C9A84C;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">menonpg.github.io/aats-surgeon-video</a>
+      &nbsp;·&nbsp;
+      <a href="https://learn.aatsqualitygateway.org" target="_blank" style="color:#C9A84C;text-decoration:none;pointer-events:auto;z-index:100;position:relative;">learn.aatsqualitygateway.org</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <script>
   window.__timelines = window.__timelines || {};
   const tl = gsap.timeline({ paused: false });
@@ -851,21 +1005,7 @@
   window.__timelines["main"] = tl;
 
   // ── Manual navigation ──────────────────────────────
-  const slideTimings = [
-    { id: 's1',  start: 0   },
-    { id: 's2',  start: 6   },
-    { id: 's3',  start: 26  },
-    { id: 's4',  start: 56  },
-    { id: 's5',  start: 81  },
-    { id: 's6',  start: 101 },
-    { id: 's7',  start: 146 },
-    { id: 's8',  start: 176 },
-    { id: 's9',  start: 221 },
-    { id: 's10', start: 241 },
-    { id: 's11', start: 296 },
-    { id: 's12', start: 362 },
-    { id: 's13', start: 392 }
-  ];
+  const slideTimings = [0,6,26,56,81,101,146,176,221,241,296,362,392];
 
   let currentSlide = 0;
   let isPaused = false;
@@ -879,7 +1019,7 @@
       font-family:Inter,system-ui,sans-serif;">
       <button id="nav-prev" style="background:none;border:1px solid #C9A84C;color:#C9A84C;
         padding:7px 18px;border-radius:20px;cursor:pointer;font-size:18px;font-weight:700;">◀</button>
-      <span id="nav-label" style="color:#F0F4FF;font-size:15px;min-width:120px;text-align:center;letter-spacing:1px;">1 / 13</span>
+      <span id="nav-label" style="color:#F0F4FF;font-size:15px;min-width:120px;text-align:center;letter-spacing:1px;">1 / 16</span>
       <button id="nav-next" style="background:none;border:1px solid #C9A84C;color:#C9A84C;
         padding:7px 18px;border-radius:20px;cursor:pointer;font-size:18px;font-weight:700;">▶</button>
       <button id="nav-play" style="background:#C9A84C;border:none;color:#0A1628;
@@ -887,11 +1027,30 @@
     </div>`;
   document.body.appendChild(nav);
 
+  const allSlideIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s16'];
+  const animatedCount = 13;
+
   function jumpTo(idx) {
-    currentSlide = Math.max(0, Math.min(idx, slideTimings.length - 1));
-    tl.seek(slideTimings[currentSlide].start);
-    if (isPaused) tl.pause();
-    document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideTimings.length}`;
+    currentSlide = Math.max(0, Math.min(idx, allSlideIds.length - 1));
+    if (currentSlide < animatedCount) {
+      allSlideIds.slice(animatedCount).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.opacity = '0'; el.style.pointerEvents = 'none'; }
+      });
+      tl.seek(slideTimings[currentSlide]);
+      isPaused = false; tl.play();
+      document.getElementById('nav-play').textContent = '⏸ Pause';
+    } else {
+      tl.pause(); isPaused = true;
+      document.getElementById('nav-play').textContent = '▶ Play';
+      allSlideIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.opacity = '0'; el.style.pointerEvents = 'none'; }
+      });
+      const target = document.getElementById(allSlideIds[currentSlide]);
+      if (target) { target.style.opacity = '1'; target.style.pointerEvents = 'auto'; }
+    }
+    document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${allSlideIds.length}`;
   }
 
   document.getElementById('nav-prev').onclick = () => jumpTo(currentSlide - 1);
