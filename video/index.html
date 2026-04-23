@@ -332,6 +332,10 @@
 <div id="s5" class="slide" data-composition-id="s5-root" data-start="81" data-duration="20" data-width="1920" data-height="1080" data-track-index="2">
   <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;gap:0;">
     <div style="padding:44px 60px;border-right:1px solid #1E3254;display:flex;flex-direction:column;justify-content:center;">
+   <div style="margin-bottom:20px;border-radius:10px;overflow:hidden;border:2px solid #1E3254;box-shadow:0 0 30px rgba(201,168,76,0.15);">
+     <div style="background:#1B3A6B;padding:8px 14px;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;">LIVE DEMO — openevidence.com</div>
+     <img src="assets/screenshot-openevidence.jpg" style="width:100%;display:block;max-height:280px;object-fit:cover;object-position:top;" alt="Open Evidence"/>
+   </div>
       <div style="font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;">AI-Powered Literature Search</div>
       <h2 style="font-size:56px;font-weight:900;margin-bottom:20px;">Stop screening<br>200 papers manually.</h2>
       <!-- Tool cards -->
@@ -437,7 +441,10 @@
     <h2 style="font-size:52px;font-weight:900;margin-bottom:6px;">RAG + RLM: Answers from <em style="color:#C9A84C;">your</em> data.</h2>
     <p style="font-size:18px;color:#8899BB;margin-bottom:20px;"><strong style="color:#F0F4FF;">RAG = Retrieval-Augmented Generation.</strong> Build a searchable knowledge base from your operative reports, research papers, guidelines — and ask questions answered from <em>your</em> documents, not the open internet, not hallucinated memory. <strong style="color:#F0F4FF;">RLM = Recursive Language Model</strong> — solves the "context rot" problem for massive archives.</p>
     <!-- Animated flow -->
-    <div id="s7-flow" style="display:flex;align-items:center;gap:0;margin-bottom:30px;justify-content:center;">
+    <div id="s7-flow-wrap">
+   <div style="display:grid;grid-template-columns:1fr 420px;gap:24px;margin-bottom:20px;">
+   <div>
+   <div id="s7-flow" style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:16px;gap:0;margin-bottom:30px;justify-content:center;">
       <div id="s7-f1" style="background:#0F1E3A;border:2px solid #C9A84C;border-radius:8px;padding:18px 24px;font-size:20px;font-weight:600;text-align:center;min-width:170px;">📄<br>Your<br>Documents</div>
       <div style="font-size:32px;color:#C9A84C;margin:0 10px;">→</div>
       <div id="s7-f2" style="background:#0F1E3A;border:2px solid #C9A84C;border-radius:8px;padding:18px 24px;font-size:20px;font-weight:600;text-align:center;min-width:170px;">🔢<br>Vector<br>Embeddings</div>
@@ -517,7 +524,9 @@
         <div style="font-size:14px;color:#556688;font-style:italic;"><a style="pointer-events:auto;position:relative;z-index:100;" href="https://www.nature.com/articles/s41593-025-01934-3" target="_blank" style="color:#C9A84C;text-decoration:none;border-bottom:1px dotted #C9A84C;">Nature Neuroscience · February 2026 · Faisal Mahmood Lab</a></div>
       </div>
       <!-- APOLLO -->
-      <div id="s8-c" style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:28px;">
+      <div id="s8-c" style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:0;overflow:hidden;">
+   <img src="assets/screenshot-apollo.jpg" style="width:100%;max-height:140px;object-fit:cover;object-position:top;display:block;" alt="APOLLO blog"/>
+   <div style="padding:20px;">
         <div style="text-align:center;margin-bottom:12px;">
           <svg width="120" height="120" viewBox="0 0 120 120">
             <rect x="10" y="85" width="18" height="25" fill="#1B3A6B"/>
@@ -622,7 +631,10 @@
       <h3 style="font-size:40px;font-weight:900;margin-bottom:16px;">Grace</h3>
       <p style="font-size:19px;color:#8899BB;line-height:1.5;margin-bottom:24px;">An AI voice agent that conducts goals-of-care conversations with seriously ill patients. Explains DNR, POLST, advance directives in plain language. Adapts to each patient's life context. Remembers every session across months.</p>
       <!-- Chat transcript -->
-      <div id="s10-chat" style="background:#0A1628;border:1px solid #1E3254;border-radius:10px;padding:24px;margin-bottom:16px;">
+      <div id="s10-chat" style="margin-bottom:16px;border-radius:10px;overflow:hidden;border:2px solid #1E3254;box-shadow:0 0 30px rgba(201,168,76,0.15);">
+   <div style="background:#1B3A6B;padding:8px 14px;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;">LIVE — menonpg.github.io/jefferson-voice-agent</div>
+   <img src="assets/screenshot-grace.jpg" style="width:100%;max-height:320px;object-fit:cover;object-position:top;display:block;" alt="Grace"/>
+   <div style="background:#0A1628;padding:14px 16px;">
         <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#8899BB;margin-bottom:16px;">Sample Conversation</div>
         <div style="margin-bottom:16px;padding:12px 16px;background:#0F1E3A;border-radius:8px;">
           <div style="font-size:13px;color:#8899BB;margin-bottom:6px;">PATIENT</div>
@@ -649,7 +661,9 @@
     <h2 style="font-size:54px;font-weight:900;margin-bottom:24px;">Conversational risk assessment. No form filling.</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:24px;">
       <!-- AskAQG -->
-      <div id="s11-a" style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:28px;">
+      <div id="s11-a" style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;overflow:hidden;padding:0;">
+   <div style="border-radius:0;overflow:hidden;max-height:120px;"><img src="assets/screenshot-aats-aqg.jpg" style="width:100%;display:block;object-fit:cover;object-position:top;" alt="AATS AQG"/></div>
+   <div style="padding:20px;">
         <div style="font-size:22px;font-weight:800;margin-bottom:6px;">AskAQG</div>
         <div style="font-size:15px;color:#8899BB;margin-bottom:14px;">MCP + GPT-4o · Azure OpenAI · randomForestSRC models</div>
         <div style="background:#0A1628;border:1px solid #1E3254;border-radius:8px;padding:16px;font-size:18px;color:#CCDDEE;font-style:italic;margin-bottom:14px;">"65-year-old male, CABG, history of diabetes, transfer with prolonged pre-op stay — what are the risks?"</div>
