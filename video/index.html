@@ -131,7 +131,7 @@
 ═══════════════════════════════════════════════ -->
 <div id="hdr" style="position:absolute;top:0;left:0;right:0;height:80px;background:#0F2547;border-bottom:3px solid #C9A84C;display:flex;align-items:center;padding:0 60px;gap:16px;z-index:50;"
      data-composition-id="hdr" data-start="0" data-duration="407" data-width="1920" data-height="80" data-track-index="3">
-  
+  <img src="assets/aats-logo.jpg" style="height:52px;" alt="AATS"/>
   <span style="font-size:17px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;">Quality Gateway · AI Literacy &amp; Application</span>
   <span style="margin-left:auto;font-size:15px;color:#8899BB;letter-spacing:1px;">AATS Annual Meeting 2026 · Chicago · May 2</span>
 </div>
@@ -141,7 +141,7 @@
 ═══════════════════════════════════════════════ -->
 <div id="ftr" style="position:absolute;bottom:0;left:0;right:0;height:52px;background:#0F2547;border-top:2px solid #1E3254;display:flex;align-items:center;padding:0 60px;font-size:14px;color:#8899BB;z-index:50;"
      data-composition-id="ftr" data-start="0" data-duration="407" data-width="1920" data-height="52" data-track-index="4">
-  <span>Prahlad Menon · QuantMD / ThinkCreate.AI</span>
+  <span>Prahlad Menon, PhD, PMP · QuantMD / ThinkCreate.AI</span>
   <span style="margin-left:auto;color:#C9A84C;font-weight:600;">learn.aatsqualitygateway.org</span>
 </div>
 
@@ -171,7 +171,7 @@
       <p id="s1-sub" style="font-size:32px;color:#8899BB;margin-bottom:28px;">A condensed, high-impact introduction for cardiothoracic surgeons</p>
       <div id="s1-speakers" style="display:flex;gap:40px;">
         <div style="font-size:20px;"><span style="color:#C9A84C;font-weight:700;">Bryan M. Burt, MD</span><span style="color:#8899BB;"> · Session Chair</span></div>
-        <div style="font-size:20px;"><span style="color:#C9A84C;font-weight:700;">Prahlad Menon</span><span style="color:#8899BB;"> · Live Demos</span></div>
+        <div style="font-size:20px;"><span style="color:#C9A84C;font-weight:700;">Prahlad Menon, PhD, PMP</span><span style="color:#8899BB;"> · QuantMD · Live Demos</span></div>
         <div style="font-size:20px;"><span style="color:#C9A84C;font-weight:700;">Ravi Ghanta, MD</span><span style="color:#8899BB;"> · Surgeon Speaker</span></div>
       </div>
     </div>
@@ -226,43 +226,56 @@
     <div style="font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Large Language Models</div>
     <h2 style="font-size:58px;font-weight:900;margin-bottom:8px;">Four frontier models. All excellent.</h2>
     <p style="font-size:24px;color:#8899BB;margin-bottom:34px;">The difference is almost entirely in <em style="color:#F0F4FF;font-weight:600;">how you prompt them.</em></p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;margin-bottom:28px;">
-      <!-- Claude -->
-      <div id="s3-a" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:32px;">
-        <svg width="48" height="48" viewBox="0 0 48 48" style="margin-bottom:16px;"><circle cx="24" cy="24" r="22" fill="#1B3A6B" stroke="#C9A84C" stroke-width="2"/><text x="24" y="30" text-anchor="middle" font-size="18" font-weight="900" fill="#C9A84C">C</text></svg>
-        <div style="font-size:28px;font-weight:800;">Claude Opus 4.6</div>
-        <div style="font-size:16px;color:#C9A84C;font-weight:600;margin:8px 0;">Anthropic</div>
-        <div style="font-size:18px;color:#8899BB;line-height:1.5;">Best complex reasoning<br>1M token context window<br>Entire textbooks in one prompt</div>
-        <div style="margin-top:16px;padding:8px 14px;background:#0A1628;border-radius:6px;font-size:15px;color:#C9A84C;font-weight:600;">Best for: Manuscripts, deep analysis</div>
+    <!-- Closed-source row -->
+    <div style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8899BB;margin-bottom:10px;">CLOSED-SOURCE (API / Subscription)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;margin-bottom:18px;">
+      <div id="s3-a" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;">
+        <div style="font-size:24px;font-weight:800;">Claude Opus 4.7</div>
+        <div style="font-size:14px;color:#C9A84C;font-weight:600;margin:6px 0;">Anthropic · Apr 2026</div>
+        <div style="font-size:16px;color:#8899BB;line-height:1.5;">Best reasoning + agentic tasks. 1M token context — feed it an entire textbook. Task budgets for long loops.</div>
+        <div style="margin-top:12px;padding:6px 12px;background:#0A1628;border-radius:6px;font-size:14px;color:#C9A84C;font-weight:600;">Best for: Deep analysis, manuscripts</div>
       </div>
-      <!-- ChatGPT -->
-      <div id="s3-b" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:32px;">
-        <svg width="48" height="48" viewBox="0 0 48 48" style="margin-bottom:16px;"><circle cx="24" cy="24" r="22" fill="#1B3A6B" stroke="#C9A84C" stroke-width="2"/><text x="24" y="30" text-anchor="middle" font-size="18" font-weight="900" fill="#C9A84C">G</text></svg>
-        <div style="font-size:28px;font-weight:800;">ChatGPT 5.2</div>
-        <div style="font-size:16px;color:#C9A84C;font-weight:600;margin:8px 0;">OpenAI</div>
-        <div style="font-size:18px;color:#8899BB;line-height:1.5;">Best structured writing<br>Manuscripts &amp; grant narratives<br>Data Analyst: CSV → charts</div>
-        <div style="margin-top:16px;padding:8px 14px;background:#0A1628;border-radius:6px;font-size:15px;color:#C9A84C;font-weight:600;">Best for: Writing, data analysis</div>
+      <div id="s3-b" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;">
+        <div style="font-size:24px;font-weight:800;">GPT-5.4</div>
+        <div style="font-size:14px;color:#C9A84C;font-weight:600;margin:6px 0;">OpenAI · Apr 2026</div>
+        <div style="font-size:16px;color:#8899BB;line-height:1.5;">Best structured writing. Data Analyst: CSV → publication figures. Native image generation + understanding.</div>
+        <div style="margin-top:12px;padding:6px 12px;background:#0A1628;border-radius:6px;font-size:14px;color:#C9A84C;font-weight:600;">Best for: Writing, data analysis</div>
       </div>
-      <!-- Gemini -->
-      <div id="s3-c" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:32px;">
-        <svg width="48" height="48" viewBox="0 0 48 48" style="margin-bottom:16px;"><circle cx="24" cy="24" r="22" fill="#1B3A6B" stroke="#C9A84C" stroke-width="2"/><text x="24" y="30" text-anchor="middle" font-size="18" font-weight="900" fill="#C9A84C">G</text></svg>
-        <div style="font-size:28px;font-weight:800;">Gemini 3.1 Pro</div>
-        <div style="font-size:16px;color:#C9A84C;font-weight:600;margin:8px 0;">Google</div>
-        <div style="font-size:18px;color:#8899BB;line-height:1.5;">Multimodal + live search<br>Show it a CT scan, ask questions<br>Connects to real-time web</div>
-        <div style="margin-top:16px;padding:8px 14px;background:#0A1628;border-radius:6px;font-size:15px;color:#C9A84C;font-weight:600;">Best for: Imaging, live research</div>
+      <div id="s3-c" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;">
+        <div style="font-size:24px;font-weight:800;">Gemini 2.5 Pro</div>
+        <div style="font-size:14px;color:#C9A84C;font-weight:600;margin:6px 0;">Google · 2026</div>
+        <div style="font-size:16px;color:#8899BB;line-height:1.5;">Multimodal + live search. Show it a CT scan and ask questions. 1M token context. Best grounding in evidence.</div>
+        <div style="margin-top:12px;padding:6px 12px;background:#0A1628;border-radius:6px;font-size:14px;color:#C9A84C;font-weight:600;">Best for: Imaging, literature, search</div>
       </div>
-      <!-- Grok -->
-      <div id="s3-d" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:32px;">
-        <svg width="48" height="48" viewBox="0 0 48 48" style="margin-bottom:16px;"><circle cx="24" cy="24" r="22" fill="#1B3A6B" stroke="#C9A84C" stroke-width="2"/><text x="24" y="30" text-anchor="middle" font-size="18" font-weight="900" fill="#C9A84C">X</text></svg>
-        <div style="font-size:28px;font-weight:800;">Grok 4.20</div>
-        <div style="font-size:16px;color:#C9A84C;font-weight:600;margin:8px 0;">xAI</div>
-        <div style="font-size:18px;color:#8899BB;line-height:1.5;">Fast, direct, uncensored<br>Technical &amp; analytical tasks<br>Real-time X/Twitter data</div>
-        <div style="margin-top:16px;padding:8px 14px;background:#0A1628;border-radius:6px;font-size:15px;color:#C9A84C;font-weight:600;">Best for: Speed, technical tasks</div>
+      <div id="s3-d" style="background:#0F1E3A;border:1px solid #1E3254;border-top:4px solid #C9A84C;border-radius:10px;padding:24px;">
+        <div style="font-size:24px;font-weight:800;">Grok 3</div>
+        <div style="font-size:14px;color:#C9A84C;font-weight:600;margin:6px 0;">xAI · 2026</div>
+        <div style="font-size:16px;color:#8899BB;line-height:1.5;">Fast, direct, uncensored. Real-time X/Twitter data. Strong at technical and quantitative analysis.</div>
+        <div style="margin-top:12px;padding:6px 12px;background:#0A1628;border-radius:6px;font-size:14px;color:#C9A84C;font-weight:600;">Best for: Speed, technical tasks</div>
       </div>
     </div>
-    <div id="s3-insight" style="background:#0F2547;border:1px solid #C9A84C;border-radius:8px;padding:18px 32px;text-align:center;font-size:24px;color:#F0F4FF;">
-      💡 <strong>Key insight:</strong> All frontier models are now very good — the difference is in how you use them.
-      <span style="color:#8899BB;font-size:18px;margin-left:20px;">→ Demo: learn.aatsqualitygateway.org/ai-playground/lesson5</span>
+    <!-- Open-source row -->
+    <div style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#8899BB;margin-bottom:10px;">OPEN-SOURCE (Run locally or free)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:18px;">
+      <div id="s3-e" style="background:#0A1628;border:1px solid #1E3254;border-top:4px solid #556688;border-radius:10px;padding:20px;">
+        <div style="font-size:22px;font-weight:800;">Llama 4 Scout</div>
+        <div style="font-size:14px;color:#8899BB;font-weight:600;margin:6px 0;">Meta · Apache 2.0 · Free</div>
+        <div style="font-size:15px;color:#8899BB;line-height:1.5;"><strong style="color:#F0F4FF;">10M token context window.</strong> Run locally on your GPU. No data leaves your institution. Ideal for sensitive patient data.</div>
+      </div>
+      <div id="s3-f" style="background:#0A1628;border:1px solid #1E3254;border-top:4px solid #556688;border-radius:10px;padding:20px;">
+        <div style="font-size:22px;font-weight:800;">Qwen 3 32B</div>
+        <div style="font-size:14px;color:#8899BB;font-weight:600;margin:6px 0;">Alibaba · Apache 2.0 · Free</div>
+        <div style="font-size:15px;color:#8899BB;line-height:1.5;">Fits on a 24GB GPU at 4-bit quantization. Strong reasoning, multilingual. Best open model for clinical notes.</div>
+      </div>
+      <div id="s3-g" style="background:#0A1628;border:1px solid #1E3254;border-top:4px solid #556688;border-radius:10px;padding:20px;">
+        <div style="font-size:22px;font-weight:800;">DeepSeek R2</div>
+        <div style="font-size:14px;color:#8899BB;font-weight:600;margin:6px 0;">DeepSeek · MIT · Free</div>
+        <div style="font-size:15px;color:#8899BB;line-height:1.5;">Chain-of-thought reasoning at fraction of closed-source cost. Strong on math, science, and structured clinical tasks.</div>
+      </div>
+    </div>
+    <div id="s3-insight" style="background:#0F2547;border:1px solid #C9A84C;border-radius:8px;padding:14px 28px;display:flex;align-items:center;gap:20px;font-size:20px;color:#F0F4FF;">
+      <span>💡 <strong>Key insight:</strong> All frontier models are now very good — the difference is in how you prompt them.</span>
+      <span style="margin-left:auto;color:#8899BB;font-size:16px;white-space:nowrap;">Demo → learn.aatsqualitygateway.org/ai-playground/lesson5</span>
     </div>
   </div>
 </div>
@@ -402,7 +415,7 @@
         <div style="font-size:40px;margin-bottom:10px;">📝</div>
         <div style="font-size:22px;font-weight:700;margin-bottom:6px;">Procedure Codes + Letters</div>
         <div style="font-size:16px;color:#8899BB;">Paste operative report → get procedure codes. Give 5 bullets → get a letter of recommendation.</div>
-        <div style="font-size:14px;color:#C9A84C;margin-top:8px;">Claude Opus 4.6 · ChatGPT 5.2</div>
+        <div style="font-size:14px;color:#C9A84C;margin-top:8px;">Claude Opus 4.7 · GPT-5.4</div>
       </div>
       <div style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:24px;">
         <div style="font-size:40px;margin-bottom:10px;">🧬</div>
@@ -421,8 +434,8 @@
 <div id="s7" class="slide" data-composition-id="s7-root" data-start="146" data-duration="30" data-width="1920" data-height="1080" data-track-index="2">
   <div style="position:absolute;top:80px;bottom:52px;left:0;right:0;padding:36px 70px;">
     <div style="font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Knowledge Base Architecture</div>
-    <h2 style="font-size:56px;font-weight:900;margin-bottom:8px;">RAG + RLM: Answers from <em style="color:#C9A84C;">your</em> data.</h2>
-    <p style="font-size:21px;color:#8899BB;margin-bottom:28px;">Build a searchable knowledge base from operative reports, papers, guidelines — and ask natural-language questions answered from your documents, not the internet.</p>
+    <h2 style="font-size:52px;font-weight:900;margin-bottom:6px;">RAG + RLM: Answers from <em style="color:#C9A84C;">your</em> data.</h2>
+    <p style="font-size:18px;color:#8899BB;margin-bottom:20px;"><strong style="color:#F0F4FF;">RAG = Retrieval-Augmented Generation.</strong> Build a searchable knowledge base from your operative reports, research papers, guidelines — and ask questions answered from <em>your</em> documents, not the open internet, not hallucinated memory. <strong style="color:#F0F4FF;">RLM = Recursive Language Model</strong> — solves the "context rot" problem for massive archives.</p>
     <!-- Animated flow -->
     <div id="s7-flow" style="display:flex;align-items:center;gap:0;margin-bottom:30px;justify-content:center;">
       <div id="s7-f1" style="background:#0F1E3A;border:2px solid #C9A84C;border-radius:8px;padding:18px 24px;font-size:20px;font-weight:600;text-align:center;min-width:170px;">📄<br>Your<br>Documents</div>
@@ -540,7 +553,7 @@
       <div id="s9-a" style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:32px;">
         <div style="font-size:44px;margin-bottom:12px;">🍌</div>
         <div style="font-size:24px;font-weight:700;margin-bottom:8px;">Nano Banana 2</div>
-        <div style="font-size:16px;color:#8899BB;margin-bottom:4px;font-style:italic;">(Gemini 3.1 Flash Image)</div>
+        <div style="font-size:16px;color:#8899BB;margin-bottom:4px;font-style:italic;">(Gemini 2.5 Flash Image)</div>
         <div style="font-size:17px;color:#AABBCC;line-height:1.5;margin-bottom:14px;">Surgical diagrams, anatomical illustrations, conference posters from text descriptions. Up to 4K. Subject consistency across frames.</div>
         <div style="background:#0A1628;border:1px solid #1E3254;border-radius:6px;padding:12px;font-size:15px;color:#8899BB;font-style:italic;">"Generate an anatomical illustration of the left hilum showing the pulmonary artery, vein, and bronchus with labeled structures"</div>
         <div style="font-size:14px;color:#C9A84C;margin-top:10px;">Image Gen Demo → learn.aatsqualitygateway.org/ai-playground/lesson12</div>
@@ -555,7 +568,7 @@
       <div id="s9-c" style="background:#0F1E3A;border:1px solid #1E3254;border-top:3px solid #C9A84C;border-radius:10px;padding:32px;">
         <div style="font-size:44px;margin-bottom:12px;">🎬</div>
         <div style="font-size:24px;font-weight:700;margin-bottom:8px;">NotebookLM Cinematic Video</div>
-        <div style="font-size:17px;color:#AABBCC;line-height:1.5;margin-bottom:14px;">Upload any document — a research paper, clinical guideline, patient education material. Get back a narrated cinematic video with fluid animations in under an hour. Gemini 3 + Veo 3 + Nano Banana Pro.</div>
+        <div style="font-size:17px;color:#AABBCC;line-height:1.5;margin-bottom:14px;">Upload any document — a research paper, clinical guideline, patient education material. Get back a narrated cinematic video with fluid animations in under an hour. Gemini 2.5 + Veo 3 + Nano Banana Pro.</div>
         <div style="font-size:14px;color:#556688;font-style:italic;">blog.themenonlab.com/blog/notebooklm-cinematic-video-overviews-education<br>Google AI Ultra · $250/mo for cinematic tier</div>
       </div>
     </div>
@@ -723,7 +736,7 @@
     <p style="font-size:22px;color:#8899BB;">AI for Surgeons Workshop · AATS Annual Meeting 2026 · May 2 · 7:30–9:00 AM CT · Chicago</p>
     <div style="margin-top:32px;display:flex;gap:20px;font-size:18px;color:#8899BB;">
       <span>Bryan M. Burt, MD</span><span style="color:#C9A84C;">·</span>
-      <span>Prahlad Menon</span><span style="color:#C9A84C;">·</span>
+      <span>Prahlad Menon, PhD, PMP</span><span style="color:#C9A84C;">·</span>
       <span>Ravi Ghanta, MD</span>
     </div>
   </div>
@@ -755,7 +768,7 @@
 
   // S3
   fadeSlide('s3', 26, 30);
-  tl.from(['#s3-a','#s3-b','#s3-c','#s3-d'], { y: 40, opacity: 0, duration: 0.5, stagger: 0.2 }, 26.5);
+  tl.from(['#s3-a','#s3-b','#s3-c','#s3-d','#s3-e','#s3-f','#s3-g'], { y: 40, opacity: 0, duration: 0.4, stagger: 0.12 }, 26.5);
   tl.from('#s3-insight', { y: 20, opacity: 0, duration: 0.5 }, 28.5);
 
   // S4
@@ -804,6 +817,79 @@
 
   tl.play();
   window.__timelines["main"] = tl;
+
+  // ── Manual navigation ──────────────────────────────
+  const slideTimings = [
+    { id: 's1',  start: 0   },
+    { id: 's2',  start: 6   },
+    { id: 's3',  start: 26  },
+    { id: 's4',  start: 56  },
+    { id: 's5',  start: 81  },
+    { id: 's6',  start: 101 },
+    { id: 's7',  start: 146 },
+    { id: 's8',  start: 176 },
+    { id: 's9',  start: 221 },
+    { id: 's10', start: 241 },
+    { id: 's11', start: 296 },
+    { id: 's12', start: 362 },
+    { id: 's13', start: 392 }
+  ];
+
+  let currentSlide = 0;
+  let isPaused = false;
+
+  // Nav UI
+  const nav = document.createElement('div');
+  nav.innerHTML = `
+    <div id="nav-ui" style="position:fixed;bottom:60px;left:50%;transform:translateX(-50%);
+      display:flex;align-items:center;gap:12px;background:rgba(10,22,40,0.92);
+      border:1px solid #C9A84C;border-radius:40px;padding:10px 24px;z-index:999;
+      font-family:Inter,system-ui,sans-serif;">
+      <button id="nav-prev" style="background:none;border:1px solid #C9A84C;color:#C9A84C;
+        padding:7px 18px;border-radius:20px;cursor:pointer;font-size:18px;font-weight:700;">◀</button>
+      <span id="nav-label" style="color:#F0F4FF;font-size:15px;min-width:120px;text-align:center;letter-spacing:1px;">1 / 13</span>
+      <button id="nav-next" style="background:none;border:1px solid #C9A84C;color:#C9A84C;
+        padding:7px 18px;border-radius:20px;cursor:pointer;font-size:18px;font-weight:700;">▶</button>
+      <button id="nav-play" style="background:#C9A84C;border:none;color:#0A1628;
+        padding:7px 18px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;">⏸ Pause</button>
+    </div>`;
+  document.body.appendChild(nav);
+
+  function jumpTo(idx) {
+    currentSlide = Math.max(0, Math.min(idx, slideTimings.length - 1));
+    tl.seek(slideTimings[currentSlide].start);
+    if (isPaused) tl.pause();
+    document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideTimings.length}`;
+  }
+
+  document.getElementById('nav-prev').onclick = () => jumpTo(currentSlide - 1);
+  document.getElementById('nav-next').onclick = () => jumpTo(currentSlide + 1);
+  document.getElementById('nav-play').onclick = () => {
+    isPaused = !isPaused;
+    isPaused ? tl.pause() : tl.play();
+    document.getElementById('nav-play').textContent = isPaused ? '▶ Play' : '⏸ Pause';
+  };
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') jumpTo(currentSlide + 1);
+    if (e.key === 'ArrowLeft') jumpTo(currentSlide - 1);
+    if (e.key === 'p' || e.key === 'P') document.getElementById('nav-play').click();
+  });
+
+  // Auto-advance tracking
+  tl.eventCallback('onUpdate', () => {
+    const t = tl.time();
+    for (let i = slideTimings.length - 1; i >= 0; i--) {
+      if (t >= slideTimings[i].start) {
+        if (currentSlide !== i) {
+          currentSlide = i;
+          document.getElementById('nav-label').textContent = `${currentSlide + 1} / ${slideTimings.length}`;
+        }
+        break;
+      }
+    }
+  });
 </script>
 </body>
 </html>
